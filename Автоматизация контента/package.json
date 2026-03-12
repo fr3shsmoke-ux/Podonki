@@ -1,0 +1,34 @@
+{
+  "name": "podonki-automation",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Система автоматизации постинга и управления каналами Podonki",
+  "main": "scripts/parse-telegram.js",
+  "scripts": {
+    "parse": "node scripts/parse-telegram.js",
+    "generate": "node src/generators/post-generator.js",
+    "analyze": "node scripts/analyze-datasets.js",
+    "sync-data": "xcopy /E /I /Y D:\\openclaw-local\\parsed-data\\datasets\\training data\\datasets\\training",
+    "dev": "nodemon scripts/parse-telegram.js",
+    "setup": "npm install && cp config/.env.example config/.env && echo 'Setup complete! Update config/.env with your API keys'"
+  },
+  "keywords": [
+    "telegram",
+    "automation",
+    "podonki",
+    "content-generation",
+    "ai"
+  ],
+  "author": "Podonki Team",
+  "license": "MIT",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.28.0",
+    "dotenv": "^16.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

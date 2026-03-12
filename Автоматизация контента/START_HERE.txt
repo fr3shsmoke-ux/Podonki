@@ -1,0 +1,90 @@
+═══════════════════════════════════════════════════════════════════
+🚀 PODONKI B2C CONTENT GENERATION SYSTEM
+Система автоматической генерации постов для Telegram (@podonki)
+═══════════════════════════════════════════════════════════════════
+
+✅ ЧТО ГОТОВО:
+  • 20 B2C рубрик (Вкусовой тестер, Челленж, Гивэвей и т.д.)
+  • 200 тем для генерации (по 10 на рубрику)
+  • 18 линеек товаров (Last Hap, Podgon, Mini, Click и т.д.)
+  • 2 генератора (1 пост / пакет постов)
+  • n8n workflow для автоматизации
+  • Полная БД (JSON) с логированием
+
+📝 БЫСТРЫЙ СТАРТ (3 шага):
+
+  1️⃣  Получить Claude API ключ:
+     https://console.anthropic.com/
+     Скопировать ключ (начинается с sk-ant-)
+  
+  2️⃣  Создать .env файл:
+     cp .env.example .env
+     Отредактировать: вставить ключ после ANTHROPIC_API_KEY=
+  
+  3️⃣  Запустить генератор:
+     node scripts/batch-generate.js 3
+     (генерирует 3 поста)
+
+📚 ПОЛНАЯ ДОКУМЕНТАЦИЯ:
+  • QUICKSTART_B2C.md — быстрый старт
+  • B2C_GENERATION_SYSTEM.md — полное описание
+  • DB_QUICKSTART.md — работа с БД
+
+🎯 ВАРИАНТЫ ИСПОЛЬЗОВАНИЯ:
+
+  Один пост:
+    node scripts/generate-post.js
+
+  Несколько постов (5):
+    node scripts/batch-generate.js 5
+
+  Автоматизация (n8n):
+    1. Открыть localhost:5678
+    2. Import: Projects/n8n-workflows/podonki-b2c-generator-v3.json
+    3. Настроить переменные окружения
+    4. Toggle On
+
+📊 ПРОВЕРКА РЕЗУЛЬТАТОВ:
+
+  Статистика:
+    node scripts/get-db-stats.js
+
+  Посмотреть последние посты:
+    node -e "import db from './src/db/podonki-db.js'; console.log(db.getCalendar().slice(-3))"
+
+📁 СТРУКТУРА ФАЙЛОВ:
+
+  Podonki/
+  ├── scripts/
+  │   ├── generate-post.js         ← Генератор 1 поста
+  │   ├── batch-generate.js        ← Генератор N постов
+  │   ├── get-db-stats.js
+  │   └── init-db.js
+  ├── src/db/
+  │   └── podonki-db.js            ← ORM для JSON
+  ├── data/
+  │   ├── rubrics.json             ← 20 B2C рубрик
+  │   ├── b2c-rubric-topics.json   ← 200 тем ✨
+  │   ├── products.json            ← 18 линеек товаров
+  │   ├── content-calendar.json    ← Все посты
+  │   └── generation-logs.json     ← Логи генерации
+  ├── .env.example                 ← Скопировать в .env
+  ├── B2C_GENERATION_SYSTEM.md     ← Полная документация
+  └── QUICKSTART_B2C.md            ← Быстрый старт
+
+🔑 НЕОБХОДИМО:
+  □ Claude API ключ (получить на https://console.anthropic.com/)
+  □ Создать .env файл с ключом
+  □ Node.js 18+ (npm install @anthropic-ai/sdk если нужно)
+
+⚠️  ВАЖНО:
+  • Не коммитить .env в Git (уже в .gitignore)
+  • API ключ = деньги, не делись с кем-то
+  • Каждый пост = ~800 токенов ≈ $0.01
+
+🐛 ПОМОЩЬ:
+  Ошибка? Смотри раздел Troubleshooting в B2C_GENERATION_SYSTEM.md
+
+═══════════════════════════════════════════════════════════════════
+Версия: 1.0 | Дата: 11.03.2026 | Статус: ✅ Production-ready
+═══════════════════════════════════════════════════════════════════
