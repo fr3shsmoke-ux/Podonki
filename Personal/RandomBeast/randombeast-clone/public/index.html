@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Beast 🏆</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        color: #333;
+      }
+
+      .container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      .header {
+        text-align: center;
+        color: white;
+        margin-bottom: 30px;
+        padding-top: 20px;
+      }
+
+      .header h1 {
+        font-size: 32px;
+        margin-bottom: 10px;
+      }
+
+      .header p {
+        font-size: 16px;
+        opacity: 0.9;
+      }
+
+      .giveaway-card {
+        background: white;
+        border-radius: 12px;
+        overflow: hidden;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        transition: transform 0.2s, box-shadow 0.2s;
+      }
+
+      .giveaway-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      .giveaway-image {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        background: #f0f0f0;
+      }
+
+      .giveaway-content {
+        padding: 20px;
+      }
+
+      .giveaway-title {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 8px;
+        color: #333;
+      }
+
+      .giveaway-prize {
+        font-size: 14px;
+        color: #666;
+        margin-bottom: 12px;
+        padding: 8px;
+        background: #f5f5f5;
+        border-radius: 6px;
+      }
+
+      .giveaway-stats {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 15px;
+        font-size: 14px;
+        color: #666;
+      }
+
+      .giveaway-stat {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .giveaway-stat strong {
+        color: #333;
+      }
+
+      .btn {
+        width: 100%;
+        padding: 12px;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s;
+      }
+
+      .btn-primary {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+      }
+
+      .btn-primary:hover {
+        opacity: 0.9;
+        transform: scale(1.02);
+      }
+
+      .btn-primary:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+
+      .btn-secondary {
+        background: #f5f5f5;
+        color: #333;
+      }
+
+      .btn-secondary:hover {
+        background: #e8e8e8;
+      }
+
+      .empty-state {
+        text-align: center;
+        padding: 40px 20px;
+        color: white;
+      }
+
+      .empty-state h2 {
+        font-size: 20px;
+        margin-bottom: 10px;
+      }
+
+      .tabs {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 20px;
+        background: rgba(255, 255, 255, 0.1);
+        padding: 10px;
+        border-radius: 8px;
+      }
+
+      .tab {
+        flex: 1;
+        padding: 10px;
+        background: transparent;
+        border: none;
+        color: white;
+        cursor: pointer;
+        border-radius: 6px;
+        transition: all 0.3s;
+        font-weight: 600;
+      }
+
+      .tab.active {
+        background: rgba(255, 255, 255, 0.25);
+      }
+
+      .loading {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 40px;
+        color: white;
+      }
+
+      .spinner {
+        border: 4px solid rgba(255, 255, 255, 0.3);
+        border-top: 4px solid white;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        animation: spin 1s linear infinite;
+      }
+
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 1000;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .modal.active {
+        display: flex;
+      }
+
+      .modal-content {
+        background: white;
+        border-radius: 12px;
+        padding: 20px;
+        max-width: 500px;
+        width: 90%;
+        max-height: 80vh;
+        overflow-y: auto;
+      }
+
+      .modal-content h2 {
+        margin-bottom: 20px;
+      }
+
+      .form-group {
+        margin-bottom: 15px;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: 600;
+        color: #333;
+      }
+
+      .form-group input,
+      .form-group textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        font-size: 14px;
+        font-family: inherit;
+      }
+
+      .form-group textarea {
+        resize: vertical;
+        min-height: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <div class="container">
+        <div class="header">
+          <h1>🏆 Random Beast</h1>
+          <p>Win prizes every day</p>
+        </div>
+
+        <div class="tabs">
+          <button class="tab active" data-tab="active">Active</button>
+          <button class="tab" data-tab="participated">My Participations</button>
+          <button class="tab" data-tab="created">My Giveaways</button>
+        </div>
+
+        <div id="active-tab" class="tab-content">
+          <div id="giveaways-list"></div>
+        </div>
+
+        <div id="participated-tab" class="tab-content" style="display: none;">
+          <div id="participations-list"></div>
+        </div>
+
+        <div id="created-tab" class="tab-content" style="display: none;">
+          <div id="created-list"></div>
+          <button class="btn btn-primary" id="create-giveaway-btn">+ Create Giveaway</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="create-modal" class="modal">
+      <div class="modal-content">
+        <h2>Create Giveaway</h2>
+        <form id="create-form">
+          <div class="form-group">
+            <label>Title</label>
+            <input type="text" name="title" required>
+          </div>
+          <div class="form-group">
+            <label>Description</label>
+            <textarea name="description"></textarea>
+          </div>
+          <div class="form-group">
+            <label>Prize Description</label>
+            <textarea name="prize_description"></textarea>
+          </div>
+          <div class="form-group">
+            <label>Image URL</label>
+            <input type="url" name="image_url">
+          </div>
+          <div class="form-group">
+            <label>
+              <input type="checkbox" name="subscription_required">
+              Require channel subscription
+            </label>
+          </div>
+          <div class="form-group">
+            <label>Max Participants</label>
+            <input type="number" name="max_participants" min="1">
+          </div>
+          <button type="submit" class="btn btn-primary">Create</button>
+          <button type="button" class="btn btn-secondary" id="close-modal">Cancel</button>
+        </form>
+      </div>
+    </div>
+
+    <script src="/js/app.js" type="module"></script>
+  </body>
+</html>

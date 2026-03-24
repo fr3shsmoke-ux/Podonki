@@ -1,0 +1,16 @@
+{
+  "hosting": {
+    "public": "Brands/Podonki/Projects/Content-automation",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}

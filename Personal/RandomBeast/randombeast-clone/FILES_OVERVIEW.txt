@@ -1,0 +1,187 @@
+RANDOM BEAST CLONE - ПОЛНЫЙ СПИСОК ФАЙЛОВ И ОПИСАНИЕ
+=====================================================
+
+СТРУКТУРА ПРОЕКТА:
+randombeast-clone/
+├── 📄 package.json              - Зависимости (Express, SQLite, Telegram Web App API)
+├── 📄 server.js                 - Точка входа (Express сервер)
+├── 📄 Dockerfile                - Docker образ для контейнеризации
+├── 📄 docker-compose.yml        - Docker Compose для easy деплоя
+├── 📄 .env.example              - Пример конфигурации (заполни вручную)
+├── 📄 .gitignore                - Ignore правила для Git
+│
+├── 📚 ДОКУМЕНТАЦИЯ:
+├── 📄 README.md                 - Полная документация (39 KB)
+├── 📄 QUICKSTART.md             - Быстрый старт за 5 минут
+├── 📄 SETUP.md                  - Подробный гайд установки и деплоя
+├── 📄 FILES_OVERVIEW.txt        - Этот файл
+│
+├── 📁 public/ (ФРОНТЕНД)
+│   ├── 📄 index.html            - Основная HTML страница (с CSS и структурой)
+│   └── 📁 js/
+│       └── 📄 app.js            - Основная логика приложения (~350 строк)
+│
+├── 📁 src/ (БЭКЕНД)
+│   ├── 📄 db.js                 - Инициализация SQLite БД (4 таблицы)
+│   │
+│   ├── 📁 routes/ (API МАРШРУТЫ)
+│   │   ├── 📄 telegram.js       - Telegram интеграция (init, user auth)
+│   │   ├── 📄 giveaway.js       - Розыгрыши (create, join, end, winners)
+│   │   ├── 📄 user.js           - Пользовательские данные (stats, history)
+│   │   └── 📄 admin.js          - Администраторские функции (moderation)
+│   │
+│   └── 📁 utils/ (УТИЛИТЫ)
+│       ├── 📄 telegram-verification.js    - Верификация Telegram Web App data
+│       └── 📄 telegram-bot-api.js         - Telegram Bot API wrapper
+│
+└── 📁 docs/
+    └── 📄 N8N_INTEGRATION.md    - Интеграция с n8n для автоматизации
+
+КОЛИЧЕСТВО ФАЙЛОВ: 18
+СТРОК КОДА: ~2500+ (без документации)
+
+=====================================================
+ОСНОВНОЙ ФУНКЦИОНАЛ
+=====================================================
+
+✅ БЭКЕНД:
+- Telegram Web App инициализация с верификацией (HMAC-SHA256)
+- CRUD операции для розыгрышей (создание, редактирование, удаление)
+- Система участников (присоединение, отслеживание)
+- Случайный выбор победителя
+- Система уведомлений (placeholder)
+- Админ панель с модерацией
+- SQLite БД с 4 таблицами (users, giveaways, participants, notifications)
+
+✅ ФРОНТЕНД:
+- Responsive дизайн для мобильных
+- 3 основные вкладки (Active / Participations / Created)
+- Модальное окно для создания розыгрышей
+- Real-time взаимодействие с API
+- Интеграция с Telegram Web App API
+- Красивое оформление (градиент, анимации)
+
+✅ ДЕПЛОЙ:
+- Docker & Docker Compose готовые конфиги
+- Поддержка .env переменных
+- Health check для мониторинга
+
+✅ АВТОМАТИЗАЦИЯ:
+- Полный гайд для интеграции с n8n
+- Примеры workflows (auto-create, daily-end, notify-winner)
+- Webhook endpoints для n8n
+
+=====================================================
+КАК НАЧАТЬ
+=====================================================
+
+1. БЫСТРЫЙ СТАРТ (5 минут):
+   - Прочитай QUICKSTART.md
+   - Получи Bot Token от @BotFather
+   - Создай .env файл
+   - npm install && npm run dev
+
+2. ПОЛНЫЙ ГАЙД:
+   - Прочитай SETUP.md
+   - Следуй всем шагам
+   - Протестируй через curl/Postman
+   - Интегрируй с n8n (docs/N8N_INTEGRATION.md)
+
+3. ДЕПЛОЙ:
+   - Используй docker-compose или вручную на VPS
+   - Обнови Bot Token в .env
+   - Запусти приложение
+
+=====================================================
+API ENDPOINTS (всего 11)
+=====================================================
+
+TELEGRAM:
+  POST /api/telegram/init
+  GET /api/telegram/user/:telegramId
+
+GIVEAWAYS:
+  POST /api/giveaway/create
+  GET /api/giveaway/active
+  GET /api/giveaway/:giveawayId
+  POST /api/giveaway/:giveawayId/join
+  POST /api/giveaway/:giveawayId/end
+
+USER:
+  GET /api/user/:userId/giveaways
+  GET /api/user/:userId/participations
+  GET /api/user/:userId/notifications
+
+ADMIN:
+  GET /api/admin/stats
+  GET /api/admin/giveaways
+  DELETE /api/admin/giveaways/:giveawayId
+  POST /api/admin/users/:userId/ban
+
+=====================================================
+БАЗА ДАННЫХ
+=====================================================
+
+ТАБЛИЦЫ (4 шт):
+1. users          - профили пользователей
+2. giveaways      - розыгрыши
+3. participants   - участники розыгрышей
+4. notifications  - уведомления
+
+FIELDS ВСЕГО: ~35+ полей
+RELATIONSHIPS: 3 foreign keys
+
+=====================================================
+ТЕХНОЛОГИИ
+=====================================================
+
+БЭКЕНД:
+- Node.js 20+ LTS
+- Express.js 4.18
+- SQLite3 (in-memory или файл)
+- Axios (HTTP requests)
+- UUID (генерация ID)
+- Crypto (верификация Telegram)
+
+ФРОНТЕНД:
+- Vanilla JavaScript (ES6+)
+- Telegram Web App API
+- CSS3 (градиенты, анимации, flexbox)
+- HTML5
+
+ИНСТРУМЕНТЫ:
+- Docker & Docker Compose
+- npm/yarn
+- .env конфигурация
+
+=====================================================
+ИНТЕГРАЦИЯ С n8n
+=====================================================
+
+Готовые сценарии:
+✅ Auto-Create Giveaway (слушаем команду /create в боте)
+✅ Daily Auto-End (завершение по расписанию)
+✅ Auto-Notify Winner (отправка уведомлений)
+
+Ссылка: docs/N8N_INTEGRATION.md
+
+=====================================================
+SECURITY
+=====================================================
+
+✅ HMAC-SHA256 верификация Telegram Web App data
+✅ Parameterized SQL queries (защита от инъекций)
+✅ Admin Token для защиты админ функций
+⚠️ TODO: Rate limiting
+⚠️ TODO: Real subscription check через Bot API
+⚠️ TODO: Input validation для всех endpoints
+
+=====================================================
+ЛИЦЕНЗИЯ
+=====================================================
+
+MIT - свободно используй в своих проектах
+
+=====================================================
+
+ГОТОВО К ИСПОЛЬЗОВАНИЮ! 🚀

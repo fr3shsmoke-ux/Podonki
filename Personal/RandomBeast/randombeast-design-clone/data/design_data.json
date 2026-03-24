@@ -1,0 +1,159 @@
+{
+  "colors": [
+    {
+      "value": "#181818",
+      "rgb": [
+        24,
+        24,
+        24
+      ],
+      "frequency": 3064329,
+      "found_in": "00_chrome_opened"
+    },
+    {
+      "value": "#ffffff",
+      "rgb": [
+        255,
+        255,
+        255
+      ],
+      "frequency": 723668,
+      "found_in": "00_chrome_opened"
+    },
+    {
+      "value": "#1f1f1f",
+      "rgb": [
+        31,
+        31,
+        31
+      ],
+      "frequency": 588784,
+      "found_in": "00_chrome_opened"
+    },
+    {
+      "value": "#101010",
+      "rgb": [
+        16,
+        16,
+        16
+      ],
+      "frequency": 129415,
+      "found_in": "00_chrome_opened"
+    },
+    {
+      "value": "#171717",
+      "rgb": [
+        23,
+        23,
+        23
+      ],
+      "frequency": 75916,
+      "found_in": "00_chrome_opened"
+    },
+    {
+      "value": "#313131",
+      "rgb": [
+        49,
+        49,
+        49
+      ],
+      "frequency": 54732,
+      "found_in": "00_chrome_opened"
+    },
+    {
+      "value": "#191919",
+      "rgb": [
+        25,
+        25,
+        25
+      ],
+      "frequency": 49971,
+      "found_in": "00_chrome_opened"
+    },
+    {
+      "value": "#f8f9fa",
+      "rgb": [
+        248,
+        249,
+        250
+      ],
+      "frequency": 48037,
+      "found_in": "00_chrome_opened"
+    },
+    {
+      "value": "#454545",
+      "rgb": [
+        69,
+        69,
+        69
+      ],
+      "frequency": 18849,
+      "found_in": "00_chrome_opened"
+    },
+    {
+      "value": "#cccccc",
+      "rgb": [
+        204,
+        204,
+        204
+      ],
+      "frequency": 16409,
+      "found_in": "00_chrome_opened"
+    },
+    {
+      "value": "#2b2b2b",
+      "rgb": [
+        43,
+        43,
+        43
+      ],
+      "frequency": 12242,
+      "found_in": "05_search_query"
+    },
+    {
+      "value": "#242424",
+      "rgb": [
+        36,
+        36,
+        36
+      ],
+      "frequency": 11188,
+      "found_in": "05_search_query"
+    }
+  ],
+  "fonts": [],
+  "sizes": [],
+  "layout": [],
+  "screenshots": [
+    {
+      "name": "00_chrome_opened",
+      "timestamp": "20260313_220949",
+      "path": "C:\\Users\\Пох кто\\OneDrive\\Рабочий стол\\Projects\\Podonki\\Projects\\Content-automation\\randombeast-design-clone\\screenshots\\00_chrome_opened_20260313_220949.png"
+    },
+    {
+      "name": "01_typing_tmadev",
+      "timestamp": "20260313_220953",
+      "path": "C:\\Users\\Пох кто\\OneDrive\\Рабочий стол\\Projects\\Podonki\\Projects\\Content-automation\\randombeast-design-clone\\screenshots\\01_typing_tmadev_20260313_220953.png"
+    },
+    {
+      "name": "02_tmadev_loaded",
+      "timestamp": "20260313_220958",
+      "path": "C:\\Users\\Пох кто\\OneDrive\\Рабочий стол\\Projects\\Podonki\\Projects\\Content-automation\\randombeast-design-clone\\screenshots\\02_tmadev_loaded_20260313_220958.png"
+    },
+    {
+      "name": "03_scrolled_page",
+      "timestamp": "20260313_221001",
+      "path": "C:\\Users\\Пох кто\\OneDrive\\Рабочий стол\\Projects\\Podonki\\Projects\\Content-automation\\randombeast-design-clone\\screenshots\\03_scrolled_page_20260313_221001.png"
+    },
+    {
+      "name": "04_search_dialog",
+      "timestamp": "20260313_221004",
+      "path": "C:\\Users\\Пох кто\\OneDrive\\Рабочий стол\\Projects\\Podonki\\Projects\\Content-automation\\randombeast-design-clone\\screenshots\\04_search_dialog_20260313_221004.png"
+    },
+    {
+      "name": "05_search_query",
+      "timestamp": "20260313_221007",
+      "path": "C:\\Users\\Пох кто\\OneDrive\\Рабочий стол\\Projects\\Podonki\\Projects\\Content-automation\\randombeast-design-clone\\screenshots\\05_search_query_20260313_221007.png"
+    }
+  ]
+}
