@@ -1,0 +1,57 @@
+name: SonarQube Analysis - Content Automation
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+    paths:
+      - 'Projects/Podonki/Projects/Content-automation/**'
+      - '.github/workflows/sonar.yml'
+  pull_request:
+    branches:
+      - main
+      - develop
+    paths:
+      - 'Projects/Podonki/Projects/Content-automation/**'
+
+jobs:
+  sonarqube:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: Projects/Podonki/Projects/Content-automation
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+          cache-dependency-path: Projects/Podonki/Projects/Content-automation/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run tests with coverage
+        run: npm test
+
+      - name: Run ESLint
+        run: npx eslint src --format json > eslint-report.json || true
+
+      - name: SonarQube Scan
+        uses: SonarSource/sonarqube-scan-action@master
+        env:
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_PROJECT_BASE_DIR: Projects/Podonki/Projects/Content-automation
+
+      - name: SonarQube Quality Gate
+        uses: SonarSource/sonarqube-quality-gate-action@master
+        timeout-minutes: 5
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}

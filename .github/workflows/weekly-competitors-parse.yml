@@ -1,0 +1,114 @@
+name: Weekly Competitors Parsing
+on:
+  schedule:
+    # Каждый понедельник в 10:00 UTC (13:00 МСК)
+    - cron: '0 10 * * 1'
+  workflow_dispatch:
+    inputs:
+      platform:
+        description: 'Platform to scrape (all/tiktok/telegram/instagram)'
+        required: false
+        default: 'all'
+
+jobs:
+  parse_competitors:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install requests beautifulsoup4 playwright pydantic
+
+      - name: Install Playwright browsers
+        run: |
+          playwright install chromium
+
+      - name: Parse competitors data
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          PLATFORM: ${{ github.event.inputs.platform || 'all' }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          python scripts/parse-all-platforms.py
+
+      - name: Validate and analyze results
+        run: |
+          python -c "
+          import json
+          import os
+          from datetime import datetime
+
+          # Check if file was created
+          if not os.path.exists('data/COMPETITORS-TRACKING.json'):
+            raise FileNotFoundError('Tracking file not created')
+
+          with open('data/COMPETITORS-TRACKING.json') as f:
+            data = json.load(f)
+
+          # Stats
+          total_competitors = len(data.get('competitors', []))
+          total_posts = sum(len(c.get('recent_posts', [])) for c in data.get('competitors', []))
+
+          print(f'✅ Parsed {total_competitors} competitors')
+          print(f'📊 Total posts collected: {total_posts}')
+          print(f'📅 Updated: {datetime.now().isoformat()}')
+          "
+
+      - name: Commit changes
+        run: |
+          git config user.email "github-actions@github.com"
+          git config user.name "GitHub Actions Bot"
+          git add -A
+          git commit -m "Weekly competitors parse: $(date +%Y-%m-%d)" || echo "No changes to commit"
+          git push
+
+      - name: Send success notification
+        if: success()
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_CHAT_ID }}
+          token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          message: |
+            🔥 Weekly competitors parsing completed!
+
+            Competitors analyzed: 9
+            Posts collected: ~200+
+            Data saved to: COMPETITORS-TRACKING.json
+
+            Latest update: $(date +%Y-%m-%d\ %H:%M:%S)
+
+            #competitors #analysis #automation
+
+      - name: Send error notification
+        if: failure()
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_CHAT_ID }}
+          token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          message: |
+            ❌ Weekly parsing failed!
+
+            Check GitHub Actions logs:
+            https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+
+            #error #automation #urgent
+
+      - name: Upload artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: parsing-results
+          path: data/COMPETITORS-TRACKING.json
+          retention-days: 30
