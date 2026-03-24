@@ -12,7 +12,7 @@
     "dev": "nodemon scripts/parse-telegram.js",
     "setup": "npm install && cp config/.env.example config/.env && echo 'Setup complete! Update config/.env with your API keys'",
     "test": "vitest",
-    "test:jest": "jest --coverage",
+    "test:jest": "jest ",
     "test:e2e": "playwright test",
     "test:e2e:ui": "playwright test --ui",
     "lint": "biome lint src",
