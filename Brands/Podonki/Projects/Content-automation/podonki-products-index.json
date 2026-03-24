@@ -1,0 +1,193 @@
+{
+  "metadata": {
+    "total_products": 20,
+    "creation_date": "2026-03-14",
+    "sources": ["TrainLab", "PodonkiOFF", "Podonki b2c"]
+  },
+  "by_type": {
+    "liquid": [
+      "liquid_podgon",
+      "liquid_last_hap",
+      "liquid_resonance",
+      "liquid_light",
+      "liquid_sour",
+      "liquid_isterika",
+      "liquid_critical",
+      "liquid_malasian",
+      "liquid_arcade"
+    ],
+    "snus": [
+      "snus_slick"
+    ],
+    "nicpak": [
+      "nikpak_critical",
+      "nikpak_mad",
+      "nikpak_original"
+    ],
+    "chewing_tobacco": [
+      "chew_mini",
+      "chew_original",
+      "chew_click",
+      "chew_swedish"
+    ],
+    "constructor": [
+      "constructor_classic",
+      "constructor_sour",
+      "constructor_american"
+    ]
+  },
+  "by_category": {
+    "Жидкость для вейпа": [
+      "liquid_podgon",
+      "liquid_last_hap",
+      "liquid_resonance",
+      "liquid_light",
+      "liquid_sour",
+      "liquid_isterika",
+      "liquid_critical",
+      "liquid_malasian",
+      "liquid_arcade"
+    ],
+    "Снюс": [
+      "snus_slick"
+    ],
+    "Никпак": [
+      "nikpak_critical",
+      "nikpak_mad",
+      "nikpak_original"
+    ],
+    "Жевательный табак": [
+      "chew_mini",
+      "chew_original",
+      "chew_click",
+      "chew_swedish"
+    ],
+    "Конструктор вкусов": [
+      "constructor_classic",
+      "constructor_sour",
+      "constructor_american"
+    ]
+  },
+  "all_products": [
+    {
+      "id": "liquid_podgon",
+      "name": "Podonki Podgon",
+      "type": "liquid",
+      "flavors": 25
+    },
+    {
+      "id": "liquid_last_hap",
+      "name": "Podonki Last Hap",
+      "type": "liquid",
+      "flavors": 40
+    },
+    {
+      "id": "liquid_resonance",
+      "name": "Podonki x Hotspot Resonance",
+      "type": "liquid",
+      "flavors": 15
+    },
+    {
+      "id": "liquid_light",
+      "name": "Podonki Light",
+      "type": "liquid",
+      "flavors": 15
+    },
+    {
+      "id": "liquid_sour",
+      "name": "Podonki Sour",
+      "type": "liquid",
+      "flavors": 20
+    },
+    {
+      "id": "liquid_isterika",
+      "name": "Podonki Isterika",
+      "type": "liquid",
+      "flavors": 15
+    },
+    {
+      "id": "liquid_critical",
+      "name": "Podonki Critical",
+      "type": "liquid",
+      "flavors": 15
+    },
+    {
+      "id": "liquid_malasian",
+      "name": "Podonki x Malasian",
+      "type": "liquid",
+      "flavors": 12
+    },
+    {
+      "id": "liquid_arcade",
+      "name": "Podonki x Malasian Arcade",
+      "type": "liquid",
+      "flavors": 20
+    },
+    {
+      "id": "snus_slick",
+      "name": "Podonki Slick",
+      "type": "snus",
+      "flavors": 10
+    },
+    {
+      "id": "nikpak_critical",
+      "name": "Podonki Critical (никпак)",
+      "type": "nicpak",
+      "flavors": 10
+    },
+    {
+      "id": "nikpak_mad",
+      "name": "Podonki x Mad",
+      "type": "nicpak",
+      "flavors": 10
+    },
+    {
+      "id": "nikpak_original",
+      "name": "Podonki Original",
+      "type": "nicpak",
+      "flavors": 10
+    },
+    {
+      "id": "chew_mini",
+      "name": "PDNK Mini",
+      "type": "chewing_tobacco",
+      "flavors": 6
+    },
+    {
+      "id": "chew_original",
+      "name": "PDNK Original",
+      "type": "chewing_tobacco",
+      "flavors": 5
+    },
+    {
+      "id": "chew_click",
+      "name": "PDNK Click",
+      "type": "chewing_tobacco",
+      "flavors": 10
+    },
+    {
+      "id": "chew_swedish",
+      "name": "PDNK Swedish Collection",
+      "type": "chewing_tobacco",
+      "flavors": 4
+    },
+    {
+      "id": "constructor_classic",
+      "name": "Podgonki Classic",
+      "type": "constructor",
+      "flavors": 43
+    },
+    {
+      "id": "constructor_sour",
+      "name": "Podgonki Sour",
+      "type": "constructor",
+      "flavors": 43
+    },
+    {
+      "id": "constructor_american",
+      "name": "Podgonki American",
+      "type": "constructor",
+      "flavors": 43
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "apify": {
+    "status": "needs_verification",
+    "url": "https://accounts.google.com/v3/signin/rejected?app_domain=https%3A%2F%2Fconsole.apify.com&client_id=559482837103-l95i9jurcco18qtick8vpeuvgu1ua0n6.apps.googleusercontent.com&continue=https%3A%2F%2Faccounts.google.com%2Fsignin%2Foauth%2Fconsent%3Fauthuser%3Dunknown%26part%3DAJi8hANWLAk4YuzGWI6TX2qZWbe0QqwocDlIaxNh-mJKDzyYMB4675adIITqWJHDJc_3mlMysaMpW4fMqRkXA3pZ7ZZBnbbd6bRL1sASlCZC31Fb3YG2v989q1TQiKDx1W6idtAom5sz_QQjgpp3rABeV-4FotsIqtWuwuECrqukCPfEouhTBvrkP7OfPt38FhjQqMlUiYmydxW7XD5uahhh0dg0TJ7_4HWri0UY8KQ3Pk0xHbB17L_GfVrT3Wew5F7XrCnurox4TCYpFXtS-U3fJU4UGZeDKKaxcT6UcoeeLktjfz-ul1keDj5kIkcDDMijEaKmb_gFOjcY_Xi4ZqzuDYVFI2YKvJ7NPjSoZaPm2AF1BZ-yXMI1tGR6hfXNRegAEXknr54eZQVJnztgCUSsMEkqAU7Cw-eoPovjxa-OORIPKLQYQ0pZRyY1FiTkF1YZOtntw-JWQ69jdvMbl9f19AN7n13-Rg%26flowName%3DGeneralOAuthFlow%26as%3DS-603933350%253A1773517630629829%26client_id%3D559482837103-l95i9jurcco18qtick8vpeuvgu1ua0n6.apps.googleusercontent.com%26requestPath%3D%252Fsignin%252Foauth%252Fconsent%23&dsh=S-603933350%3A1773517630629829&epd=AVxC5FeX2I6jXdoicxisFO0Z4d3k08u4oSP7InjpOTrN5_XeubA_gGmRHQ&flowName=GeneralOAuthFlow&idnf=fr3shsmoke%40gmail.com&o2v=1&opparams=%253F&rart=ANgoxcdGKPaeCCuSY9gboFtp9tG5XgVbccAkJ3kZQBaAYybYKJNGWsAMIFqfAcgATPepT4-wrwP2ZjLlu93n4bbPlrLcIT8Tmogf7x4-qHuFu5eZP-V7fwo&redirect_uri=https%3A%2F%2Fconsole.apify.com%2Fsign-up%3FisOAuthRedirect%3D1&response_type=code&rhlk=le&rrk=46&scope=email%20profile&service=lso&state=GOOGLE_fdd1ab92-2aa1-4ac1-81ee-6987acbbca58_",
+    "screenshot": "apify-final.png"
+  },
+  "n8n": {
+    "status": "unknown",
+    "url": "https://app.n8n.cloud/register",
+    "screenshot": "n8n-final.png"
+  },
+  "github": {
+    "status": "unknown",
+    "url": "https://accounts.google.com/v3/signin/identifier?opparams=%253F&dsh=S-351570119%3A1773517663033223&client_id=1078992815106-brpsupgvhheqg35tupphbh0qk9c32nq8.apps.googleusercontent.com&code_challenge=KjFG3JYqL1cLzYE8kBgNSC9HmQeM-2oa0l3iKnKIBlE&code_challenge_method=S256&nonce=72644429a0a6540773d6539d8c7d0185&o2v=2&prompt=select_account&redirect_uri=https%3A%2F%2Fgithub.com%2Fsessions%2Fsocial%2Fgoogle%2Fcallback&response_type=code&scope=openid+email+profile&service=lso&state=fbc6950cfa7d16142d4f72a171b6932f&flowName=GeneralOAuthFlow&continue=https%3A%2F%2Faccounts.google.com%2Fsignin%2Foauth%2Fconsent%3Fauthuser%3Dunknown%26part%3DAJi8hAO8zA1XAR0jOkLFKXtlOfdaWlrC4u0DfQqclhuPf_dL4NiSnPNR8aYiyzq64FiZawdkdZ3HH5BjRENyLfwsee5FJudnwIw8SQrYHt9ZAlbrS4trQ6--NgfdxqNm4YBYJZtYhoSmuENSsPoO1YdqQM-Qd7BcRvHtzokmLfZ1UIky5WjWRIMwhbW6BzkGI3UHziigBGrGWGECi4jQeM0Hwhf83oXasX5T-DZfwffwJdyNnRbeDJlc5aENlWC-nyLjSfLD-F2XHhV_TI3trOXSpawnjcmV0qXLtse8RneR7Z0saeOJYnJqvVQeK_p3uXKdRtK7tMg6LXph94iZiYj-9ev0kIXr1B_p6pJOTEA_aPooIYo0_FTH1R9rJ4opxuFaIn41sEslfimqBZIHSI9eddR6rAwmHQFxIOYFe2SsZkeq8An0-uJZXsdEtNWsuTdRMalR_nEPkQ_OgkWzKo70Reo7ruNIcQ%26flowName%3DGeneralOAuthFlow%26as%3DS-351570119%253A1773517663033223%26client_id%3D1078992815106-brpsupgvhheqg35tupphbh0qk9c32nq8.apps.googleusercontent.com%26requestPath%3D%252Fsignin%252Foauth%252Fconsent%23&app_domain=https%3A%2F%2Fgithub.com&rart=ANgoxceGq10DZVT1ccTiHdCmpGR6rgSxjWNZHMOmABK61LN7op4r1lqTLPF9G86ak_Qji5WvjGzhjVVmtbkxVprMbeAoaSniwBubra9XmJikQ8MXmA_7hx8",
+    "screenshot": "github-final.png"
+  }
+}

@@ -1,0 +1,1 @@
+C:\Users\Пох\ кто\OneDrive\Рабочий\ стол\Projects\Podonki\Projects\Content-automation\rust-tools\target\release\podonki-tools.exe: C:\Users\Пох\ кто\OneDrive\Рабочий\ стол\Projects\Podonki\Projects\Content-automation\rust-tools\src\main.rs

@@ -1,0 +1,9 @@
+{
+  "src/**/*.js": [
+    "biome lint --write",
+    "biome format --write"
+  ],
+  "*.json": [
+    "biome format --write"
+  ]
+}

@@ -1,0 +1,205 @@
+{
+  "brand": {
+    "name": "Podonki",
+    "channels": {
+      "train_lab": {
+        "description": "Продукция без документов",
+        "rule": "НИКОГДА не писать и не намекать на отсутствие документов"
+      },
+      "podonki_off": {
+        "description": "Продукция со всеми документами",
+        "rule": "Периодически упоминать наличие документов"
+      },
+      "podonki_b2c": {
+        "description": "B2C канал, продукция с обоих каналов",
+        "audience": "16-23 лет"
+      }
+    }
+  },
+  "products": {
+    "train_lab": {
+      "liquids": [
+        {
+          "name": "Podonki Podgon",
+          "strength": "30mg",
+          "flavors": 25,
+          "types": ["fruit", "berry", "drink"],
+          "positioning": "Бюджетный, универсальный",
+          "best_for": "Новички, экономные"
+        },
+        {
+          "name": "Podonki Last Hap",
+          "strength": "50mg",
+          "flavors": 40,
+          "types": ["fruit", "berry", "cream", "drink", "tobacco"],
+          "positioning": "Премиум, максимум выбора",
+          "best_for": "Опытные, любители экспериментов"
+        },
+        {
+          "name": "Podonki x Hotspot - Resonance",
+          "strength": "50mg",
+          "flavors": 15,
+          "types": ["menthol", "fruit", "cream"],
+          "positioning": "Вкус под настроение",
+          "best_for": "Ищущие эмоциональное соответствие"
+        },
+        {
+          "name": "Podonki Light",
+          "strength": "20mg",
+          "flavors": 15,
+          "types": ["fruit", "berry", "cream"],
+          "positioning": "Мягкая крепость, премиум вкусы",
+          "best_for": "Предпочитающие низкую крепость"
+        },
+        {
+          "name": "Podonki Sour",
+          "strength": "50mg",
+          "flavors": 20,
+          "types": ["sour", "fruit", "berry"],
+          "positioning": "Кислый профиль, смелый вкус",
+          "best_for": "Любители кислого"
+        },
+        {
+          "name": "Podonki Isterika",
+          "strength": "50mg",
+          "flavors": 15,
+          "types": ["fruit", "berry", "cream"],
+          "positioning": "Коллекционный дизайн, мощь",
+          "best_for": "Коллекционеры, ценители дизайна"
+        },
+        {
+          "name": "Podonki Critical",
+          "strength": "60mg",
+          "flavors": 15,
+          "types": ["menthol", "fruit", "drink"],
+          "positioning": "Максимальная крепость",
+          "best_for": "Опытные, ищущие экстрим"
+        },
+        {
+          "name": "Podonki x Malasian",
+          "strength": "50mg",
+          "flavors": 12,
+          "types": ["exotic", "fruit", "candy"],
+          "positioning": "Экзотика, монстр-дизайн",
+          "best_for": "Коллекционеры, любители экзотики"
+        },
+        {
+          "name": "Podonki Malasian - Arcade",
+          "strength": "50mg",
+          "flavors": 20,
+          "types": ["fruit", "candy", "drink"],
+          "positioning": "Игровая эстетика, ретро",
+          "best_for": "Геймеры, любители ретро"
+        }
+      ],
+      "nicpacks": [
+        {
+          "name": "Podonki Critical",
+          "strength": "150mg",
+          "flavors": 10,
+          "types": ["menthol", "fruit", "berry", "drink"],
+          "positioning": "Готовое к использованию"
+        },
+        {
+          "name": "Podonki x Mad",
+          "strength": "150mg",
+          "flavors": 10,
+          "types": ["exotic", "candy", "spice"],
+          "positioning": "Экстрим вкусы (дубайский шоколад, барбарис)"
+        },
+        {
+          "name": "Podonki Original",
+          "strength": "150mg",
+          "flavors": 10,
+          "types": ["menthol", "fruit", "berry"],
+          "positioning": "Классика, надежность"
+        }
+      ],
+      "snus": [
+        {
+          "name": "Podonki Slick",
+          "strength": "150mg",
+          "format": "slim паучи",
+          "flavors": 10,
+          "types": ["fruit", "berry", "mint", "classic"],
+          "positioning": "Шведская технология, slim формат"
+        }
+      ]
+    },
+    "podonki_off": {
+      "tobacco": [
+        {
+          "name": "PDNK Mini",
+          "format": "slim паучи",
+          "weight": "6.5g",
+          "паучи": 20,
+          "flavors": 6,
+          "types": ["fruit", "mint", "candy"],
+          "positioning": "Для новичков, компактный",
+          "design": "Фиолетово-розовый градиент"
+        },
+        {
+          "name": "PDNK Original",
+          "format": "паучи",
+          "weight": "10g",
+          "паучи": 20,
+          "flavors": 5,
+          "types": ["mint", "menthol"],
+          "positioning": "Мятная классика",
+          "design": "Психоделические паттерны"
+        },
+        {
+          "name": "PDNK Click",
+          "format": "паучи с капсулой",
+          "weight": "8g",
+          "паучи": 19,
+          "flavors": 10,
+          "types": ["menthol", "fruit", "candy"],
+          "positioning": "Капсула с ментолом, инновация",
+          "design": "Зеленый свирл"
+        },
+        {
+          "name": "PDNK Swedish Collection",
+          "format": "premium паучи",
+          "weight": "10g",
+          "паучи": 16,
+          "flavors": 4,
+          "flavor_names": ["Mint", "Double Mint", "Cold Dry", "Cherry"],
+          "positioning": "Шведская технология, минимал дизайн, премиум",
+          "design": "Красно-белый минимализм"
+        }
+      ],
+      "constructors": [
+        {
+          "name": "Кислая линейка Podgonki",
+          "category": "constructor"
+        },
+        {
+          "name": "Классическая линейка Podgonki",
+          "category": "constructor"
+        },
+        {
+          "name": "Американская линейка Podgonki",
+          "category": "constructor"
+        }
+      ]
+    }
+  },
+  "mandatory_rules": [
+    "Используй ТОЛЬКО факты из этого конфига. Не выдумывай цены, характеристики или вкусы.",
+    "B2C контент (16-23 лет): НЕ упоминай 'белые продукты', 'акцизы', 'сертификацию' - это B2B.",
+    "Train Lab продукция: НИКОГДА не писать и не намекать на отсутствие документов.",
+    "Podonki OFF продукция: периодически упоминать наличие документов.",
+    "Никпаки - это НЕ одноразки, у них нет тяг. Не путать категории.",
+    "Табак на OFF канале называется PDNK, не Podonki.",
+    "Длина текста: 1000-1500 символов.",
+    "Не использовать длинные тире. Только дефис или запятая.",
+    "Весь текст курсивом (_текст_ в Markdown).",
+    "Четкая структура: заголовок, **жирные** подзаголовки, списки.",
+    "Никаких цен если не знаешь точно.",
+    "Язык молодежный, понятный, 16-23 года.",
+    "Ноль ошибок: орфография, пунктуация, грамматика.",
+    "Не смешивай категории: жидкости, никпаки, снюс, табак, конструкторы - разные продукты.",
+    "Каждый пост - рекомендация по картинке/видео (опиши визуально)."
+  ]
+}

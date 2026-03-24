@@ -1,0 +1,231 @@
+{
+  "podonki": {
+    "name": "Podonki Content Management System",
+    "version": "1.0.0",
+    "description": "Database for managing content generation, scheduling, and analytics",
+    "dataDir": "C:/Users/Пох кто/OneDrive/Рабочий стол/Podonki/data",
+    "logsDir": "C:/Users/Пох кто/OneDrive/Рабочий стол/Podonki/logs"
+  },
+
+  "collections": {
+    "products": {
+      "description": "18 product lines across all categories",
+      "file": "data/products.json",
+      "schema": {
+        "id": "string (unique)",
+        "name": "string",
+        "category": "liquid|snus|nicpak|tobacco|constructor",
+        "channel": "train_lab|podonki_off|b2c",
+        "strength": "string (mg)",
+        "flavors": ["string"],
+        "target_audience": "string",
+        "positioning": "string",
+        "usp": "string"
+      }
+    },
+
+    "content_calendar": {
+      "description": "Posts scheduled for publication",
+      "file": "data/content-calendar.json",
+      "schema": {
+        "id": "string (unique, uuid)",
+        "channel": "train_lab|podonki_off|b2c",
+        "rubric": "string",
+        "product_id": "string (reference to products.id)",
+        "status": "draft|scheduled|published|archived",
+        "scheduled_date": "ISO 8601 datetime",
+        "published_date": "ISO 8601 datetime (null if not published)",
+        "text": "string (generated post text)",
+        "media_urls": ["string"],
+        "model_used": "claude|gemini|openrouter",
+        "generation_tokens": "number",
+        "engagement_score": "number (after publication)"
+      }
+    },
+
+    "generation_logs": {
+      "description": "All post generation attempts",
+      "file": "data/generation-logs.json",
+      "schema": {
+        "id": "string (uuid)",
+        "timestamp": "ISO 8601 datetime",
+        "channel": "train_lab|podonki_off|b2c",
+        "rubric": "string",
+        "product_query": "string",
+        "system_prompt_used": "string (hash or name)",
+        "model": "claude|gemini|openrouter",
+        "tokens_used": "number",
+        "success": "boolean",
+        "error_message": "string (if failed)",
+        "generated_text": "string (first 500 chars)",
+        "quality_score": "number (1-10, manual rating)"
+      }
+    },
+
+    "rubrics": {
+      "description": "All content rubrics and their configurations",
+      "file": "data/rubrics.json",
+      "schema": {
+        "id": "string (unique)",
+        "channel": "train_lab|podonki_off|b2c",
+        "name": "string",
+        "weight": "number (0.0-1.0, percentage)",
+        "description": "string",
+        "system_prompt_key": "string (reference to system prompts)",
+        "examples": [
+          {
+            "text": "string",
+            "product": "string"
+          }
+        ],
+        "active": "boolean"
+      }
+    },
+
+    "analytics": {
+      "description": "Performance metrics for posts",
+      "file": "data/analytics.json",
+      "schema": {
+        "post_id": "string (reference to content_calendar.id)",
+        "channel": "train_lab|podonki_off|b2c",
+        "published_date": "ISO 8601 datetime",
+        "views": "number",
+        "engagement": "number (likes, comments, shares)",
+        "shares": "number",
+        "comments": "number",
+        "saves": "number",
+        "rubric": "string",
+        "product": "string",
+        "quality_rating": "number (1-10)",
+        "notes": "string"
+      }
+    },
+
+    "system_prompts": {
+      "description": "Store all system prompts for generation",
+      "file": "data/system-prompts.json",
+      "schema": {
+        "key": "string (unique, e.g. 'train_lab_product_announcement')",
+        "channel": "train_lab|podonki_off|b2c",
+        "rubric": "string",
+        "prompt_text": "string (full system prompt)",
+        "version": "number",
+        "updated_at": "ISO 8601 datetime",
+        "notes": "string"
+      }
+    }
+  },
+
+  "operations": {
+    "create_post": {
+      "description": "Generate and save a new post",
+      "endpoint": "POST /api/posts",
+      "params": {
+        "channel": "string (required)",
+        "rubric": "string (required)",
+        "product_id": "string (optional, auto-select if empty)",
+        "scheduled_date": "ISO 8601 datetime (optional, defaults to now)"
+      },
+      "returns": {
+        "id": "string (post id)",
+        "text": "string (generated text)",
+        "status": "string"
+      }
+    },
+
+    "publish_post": {
+      "description": "Mark post as published",
+      "endpoint": "PUT /api/posts/:id/publish",
+      "params": {
+        "id": "string (post id)",
+        "published_date": "ISO 8601 datetime (optional)"
+      }
+    },
+
+    "get_calendar": {
+      "description": "Retrieve scheduled posts",
+      "endpoint": "GET /api/calendar",
+      "params": {
+        "channel": "string (optional filter)",
+        "from_date": "ISO 8601 datetime (optional)",
+        "to_date": "ISO 8601 datetime (optional)",
+        "status": "string (optional: draft|scheduled|published)"
+      },
+      "returns": [
+        {
+          "id": "string",
+          "channel": "string",
+          "rubric": "string",
+          "scheduled_date": "string",
+          "status": "string"
+        }
+      ]
+    },
+
+    "get_analytics": {
+      "description": "Get performance metrics",
+      "endpoint": "GET /api/analytics",
+      "params": {
+        "from_date": "ISO 8601 datetime (optional)",
+        "to_date": "ISO 8601 datetime (optional)",
+        "channel": "string (optional)"
+      },
+      "returns": {
+        "total_posts": "number",
+        "avg_engagement": "number",
+        "top_rubrics": ["string"],
+        "top_products": ["string"]
+      }
+    }
+  },
+
+  "integrations": {
+    "telegram": {
+      "enabled": true,
+      "description": "Automatic posting to Telegram channels",
+      "config": {
+        "bot_token": "env:TELEGRAM_BOT_TOKEN",
+        "channels": {
+          "train_lab": "env:TELEGRAM_TRAIN_LAB_CHANNEL_ID",
+          "podonki_off": "env:TELEGRAM_PODONKI_OFF_CHANNEL_ID",
+          "b2c": "env:TELEGRAM_B2C_CHANNEL_ID"
+        }
+      }
+    },
+    "claude_api": {
+      "enabled": true,
+      "description": "Claude API for content generation",
+      "config": {
+        "api_key": "env:ANTHROPIC_API_KEY",
+        "model": "claude-opus-4-6"
+      }
+    },
+    "n8n": {
+      "enabled": true,
+      "description": "n8n automation for scheduling and analytics",
+      "config": {
+        "webhook_url": "http://localhost:5678/webhook/podonki",
+        "api_key": "env:N8N_API_KEY"
+      }
+    }
+  },
+
+  "schemas": {
+    "post": {
+      "id": "uuid",
+      "channel": "enum(train_lab, podonki_off, b2c)",
+      "rubric": "string",
+      "product_id": "uuid or null",
+      "status": "enum(draft, scheduled, published, archived)",
+      "scheduled_date": "datetime",
+      "published_date": "datetime or null",
+      "text": "string (max 2000 chars)",
+      "media_urls": "array of strings",
+      "model_used": "enum(claude, gemini, openrouter)",
+      "generation_tokens": "integer",
+      "engagement_score": "float (0-1000)",
+      "created_at": "datetime",
+      "updated_at": "datetime"
+    }
+  }
+}

@@ -1,0 +1,1 @@
+C:\Users\Пох\ кто\OneDrive\Рабочий\ стол\Projects\Podonki\Projects\Content-automation\rust-napi\target\release\podonki_napi.dll: C:\Users\Пох\ кто\OneDrive\Рабочий\ стол\Projects\Podonki\Projects\Content-automation\rust-napi\build.rs C:\Users\Пох\ кто\OneDrive\Рабочий\ стол\Projects\Podonki\Projects\Content-automation\rust-napi\src\lib.rs

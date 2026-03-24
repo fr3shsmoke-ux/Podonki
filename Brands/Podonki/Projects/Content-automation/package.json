@@ -1,0 +1,65 @@
+{
+  "name": "podonki-automation",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Система автоматизации постинга и управления каналами Podonki",
+  "main": "scripts/parse-telegram.js",
+  "scripts": {
+    "parse": "node scripts/parse-telegram.js",
+    "generate": "node src/generators/post-generator.js",
+    "analyze": "node scripts/analyze-datasets.js",
+    "sync-data": "xcopy /E /I /Y D:\\openclaw-local\\parsed-data\\datasets\\training data\\datasets\\training",
+    "dev": "nodemon scripts/parse-telegram.js",
+    "setup": "npm install && cp config/.env.example config/.env && echo 'Setup complete! Update config/.env with your API keys'",
+    "test": "vitest",
+    "test:jest": "jest --coverage",
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "playwright test --ui",
+    "lint": "biome lint src",
+    "lint:fix": "biome lint --write src",
+    "format": "biome format --write src",
+    "prepare": "husky",
+    "agent:list": "node src/agents/cli.js list",
+    "agent:info": "node src/agents/cli.js info",
+    "agent:create": "node src/agents/cli.js create",
+    "agent:history": "node src/agents/cli.js history",
+    "agent:stats": "node src/agents/cli.js stats",
+    "agent:example": "node examples/agents-usage.js --mode simple",
+    "agent:batch": "node examples/agents-usage.js --mode batch"
+  },
+  "keywords": [
+    "telegram",
+    "automation",
+    "podonki",
+    "content-generation",
+    "ai"
+  ],
+  "author": "Podonki Team",
+  "license": "MIT",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.28.0",
+    "@langchain/anthropic": "^1.3.23",
+    "@langchain/community": "^1.1.23",
+    "@langchain/core": "^1.1.32",
+    "dotenv": "^16.6.1",
+    "langchain": "^1.2.32",
+    "puppeteer": "^24.39.1",
+    "telegraf": "^4.16.3"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.58.2",
+    "biome": "^0.3.3",
+    "husky": "^9.1.7",
+    "jest": "^30.3.0",
+    "lint-staged": "^16.4.0",
+    "nodemon": "^3.0.0",
+    "playwright": "^1.58.2",
+    "vitest": "^4.1.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "directories": {
+    "doc": "docs"
+  }
+}

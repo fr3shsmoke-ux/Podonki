@@ -1,0 +1,1 @@
+C:\Users\Пох\ кто\OneDrive\Рабочий\ стол\Projects\Podonki\Projects\Content-automation\rust-tools\target\release\csv-converter.exe: C:\Users\Пох\ кто\OneDrive\Рабочий\ стол\Projects\Podonki\Projects\Content-automation\rust-tools\src\bin\csv_converter.rs

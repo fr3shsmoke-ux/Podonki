@@ -1,0 +1,1 @@
+C:\Users\Пох\ кто\OneDrive\Рабочий\ стол\Projects\Podonki\Projects\Content-automation\rust-tools\target\release\html-parser.exe: C:\Users\Пох\ кто\OneDrive\Рабочий\ стол\Projects\Podonki\Projects\Content-automation\rust-tools\src\bin\html_parser.rs

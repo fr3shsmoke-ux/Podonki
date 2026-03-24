@@ -1,0 +1,1174 @@
+{
+  "overview": {
+    "total_posts": 418,
+    "date_range": {
+      "from": "2025-06-02T15:00:06+00:00",
+      "to": "2026-03-15T09:59:41+00:00"
+    },
+    "avg_length": 422.7,
+    "median_length": 311.5,
+    "std_length": 399.1,
+    "length_distribution": {
+      "<100": 97,
+      "100-300": 106,
+      "300-500": 70,
+      "500-1000": 100,
+      "1000-1500": 39,
+      "1500+": 6
+    },
+    "with_media": 226,
+    "without_media": 192,
+    "media_rate": 54.1,
+    "target_length": "1000-1500 символов с пробелами",
+    "in_target_range": 39,
+    "in_target_pct": 9.3
+  },
+  "categories": {
+    "promo_contest": {
+      "count": 102,
+      "pct": 24.4,
+      "avg_length": 485.0,
+      "median_length": 466.5,
+      "avg_emoji_count": 8.3,
+      "emoji_density": 1.9,
+      "question_rate": 32.4,
+      "cta_rate": 68.6,
+      "avg_structure_score": 3.73,
+      "with_media_pct": 67.6,
+      "avg_casual_score": 0.25,
+      "example_ids": [
+        722,
+        631,
+        533
+      ]
+    },
+    "info_edu": {
+      "count": 102,
+      "pct": 24.4,
+      "avg_length": 562.4,
+      "median_length": 502.0,
+      "avg_emoji_count": 8.1,
+      "emoji_density": 2.26,
+      "question_rate": 65.7,
+      "cta_rate": 40.2,
+      "avg_structure_score": 3.83,
+      "with_media_pct": 28.4,
+      "avg_casual_score": 0.69,
+      "example_ids": [
+        632,
+        618,
+        499
+      ]
+    },
+    "engagement": {
+      "count": 65,
+      "pct": 15.6,
+      "avg_length": 42.2,
+      "median_length": 33,
+      "avg_emoji_count": 1.4,
+      "emoji_density": 4.17,
+      "question_rate": 40.0,
+      "cta_rate": 15.4,
+      "avg_structure_score": 0.97,
+      "with_media_pct": 10.8,
+      "avg_casual_score": 0.09,
+      "example_ids": [
+        605,
+        577,
+        199
+      ]
+    },
+    "product_desc": {
+      "count": 37,
+      "pct": 8.9,
+      "avg_length": 917.3,
+      "median_length": 901,
+      "avg_emoji_count": 8.4,
+      "emoji_density": 1.02,
+      "question_rate": 86.5,
+      "cta_rate": 43.2,
+      "avg_structure_score": 4.41,
+      "with_media_pct": 94.6,
+      "avg_casual_score": 1,
+      "example_ids": [
+        720,
+        707,
+        704
+      ]
+    },
+    "media_only": {
+      "count": 30,
+      "pct": 7.2,
+      "avg_length": 25.7,
+      "median_length": 24.5,
+      "avg_emoji_count": 1.2,
+      "emoji_density": 7.73,
+      "question_rate": 43.3,
+      "cta_rate": 3.3,
+      "avg_structure_score": 0.9,
+      "with_media_pct": 100.0,
+      "avg_casual_score": 0.1,
+      "example_ids": [
+        670,
+        634,
+        661
+      ]
+    },
+    "entertainment": {
+      "count": 29,
+      "pct": 6.9,
+      "avg_length": 145.0,
+      "median_length": 126,
+      "avg_emoji_count": 2.1,
+      "emoji_density": 1.59,
+      "question_rate": 0.0,
+      "cta_rate": 3.4,
+      "avg_structure_score": 3.16,
+      "with_media_pct": 93.1,
+      "avg_casual_score": 0.1,
+      "example_ids": [
+        293,
+        436,
+        431
+      ]
+    },
+    "quiz_game": {
+      "count": 22,
+      "pct": 5.3,
+      "avg_length": 526.3,
+      "median_length": 416.0,
+      "avg_emoji_count": 8.2,
+      "emoji_density": 1.87,
+      "question_rate": 54.5,
+      "cta_rate": 81.8,
+      "avg_structure_score": 3.66,
+      "with_media_pct": 50.0,
+      "avg_casual_score": 0.59,
+      "example_ids": [
+        507,
+        492,
+        462
+      ]
+    },
+    "announcement": {
+      "count": 19,
+      "pct": 4.5,
+      "avg_length": 774.5,
+      "median_length": 675,
+      "avg_emoji_count": 10.1,
+      "emoji_density": 1.7,
+      "question_rate": 42.1,
+      "cta_rate": 31.6,
+      "avg_structure_score": 3.92,
+      "with_media_pct": 31.6,
+      "avg_casual_score": 0.58,
+      "example_ids": [
+        519,
+        503,
+        409
+      ]
+    },
+    "meme_fun": {
+      "count": 12,
+      "pct": 2.9,
+      "avg_length": 156.9,
+      "median_length": 150.0,
+      "avg_emoji_count": 3.6,
+      "emoji_density": 2.28,
+      "question_rate": 25.0,
+      "cta_rate": 8.3,
+      "avg_structure_score": 2.29,
+      "with_media_pct": 100.0,
+      "avg_casual_score": 0.08,
+      "example_ids": [
+        107,
+        109,
+        102
+      ]
+    }
+  },
+  "tone": {
+    "casual_posts_count": 111,
+    "casual_posts_pct": 26.6,
+    "formal_posts_count": 11,
+    "formal_posts_pct": 2.6,
+    "avg_casual_score": 0.41,
+    "top_casual_words": {
+      "чё": 30,
+      "чёт": 17,
+      "жесть": 16,
+      "реально": 14,
+      "ору": 12,
+      "норм": 10,
+      "бро": 9,
+      "топ": 9,
+      "чел": 9,
+      "мощь": 8,
+      "кайф": 7,
+      "химоз": 6,
+      "зацепил": 5,
+      "огонь": 4,
+      "круто": 4
+    },
+    "addressing": {
+      "none": 247,
+      "вы": 91,
+      "ты": 78,
+      "mixed": 2
+    },
+    "addressing_pct": {
+      "none": 59.1,
+      "вы": 21.8,
+      "ты": 18.7,
+      "mixed": 0.5
+    }
+  },
+  "emojis": {
+    "total_emoji_usage": 2593,
+    "unique_emojis": 174,
+    "top_20": {
+      "➖": 306,
+      "️": 281,
+      "🔥": 155,
+      "✅": 127,
+      "‍": 92,
+      "💀": 84,
+      "🧑": 59,
+      "💻": 57,
+      "🤔": 55,
+      "😍": 50,
+      "🎉": 49,
+      "🔣": 48,
+      "➕": 43,
+      "🎁": 43,
+      "❄": 43,
+      "👍": 42,
+      "❗": 38,
+      "😁": 37,
+      "😉": 36,
+      "🤩": 31
+    },
+    "avg_emoji_per_post": 6.2,
+    "median_emoji_per_post": 5.0,
+    "avg_density_pct": 2.66,
+    "posts_with_emoji_pct": 96.9
+  },
+  "temporal": {
+    "by_month": {
+      "2025-06": {
+        "count": 23,
+        "avg_length": 250.8,
+        "categories": {
+          "info_edu": 8,
+          "meme_fun": 7,
+          "promo_contest": 5,
+          "media_only": 2,
+          "quiz_game": 1
+        }
+      },
+      "2025-07": {
+        "count": 17,
+        "avg_length": 304.8,
+        "categories": {
+          "promo_contest": 5,
+          "quiz_game": 4,
+          "meme_fun": 3,
+          "info_edu": 2,
+          "announcement": 2,
+          "engagement": 1
+        }
+      },
+      "2025-08": {
+        "count": 15,
+        "avg_length": 408.5,
+        "categories": {
+          "promo_contest": 10,
+          "info_edu": 2,
+          "meme_fun": 2,
+          "quiz_game": 1
+        }
+      },
+      "2025-09": {
+        "count": 20,
+        "avg_length": 427.6,
+        "categories": {
+          "promo_contest": 9,
+          "info_edu": 5,
+          "engagement": 4,
+          "announcement": 1,
+          "quiz_game": 1
+        }
+      },
+      "2025-10": {
+        "count": 58,
+        "avg_length": 500.2,
+        "categories": {
+          "info_edu": 29,
+          "promo_contest": 17,
+          "engagement": 6,
+          "quiz_game": 3,
+          "product_desc": 3
+        }
+      },
+      "2025-11": {
+        "count": 113,
+        "avg_length": 455.5,
+        "categories": {
+          "info_edu": 29,
+          "promo_contest": 26,
+          "entertainment": 24,
+          "engagement": 11,
+          "announcement": 8,
+          "quiz_game": 7,
+          "product_desc": 6,
+          "media_only": 2
+        }
+      },
+      "2025-12": {
+        "count": 71,
+        "avg_length": 671.4,
+        "categories": {
+          "info_edu": 17,
+          "engagement": 14,
+          "product_desc": 14,
+          "promo_contest": 13,
+          "announcement": 6,
+          "quiz_game": 4,
+          "media_only": 2,
+          "entertainment": 1
+        }
+      },
+      "2026-01": {
+        "count": 67,
+        "avg_length": 204.1,
+        "categories": {
+          "engagement": 25,
+          "promo_contest": 12,
+          "media_only": 10,
+          "info_edu": 10,
+          "product_desc": 6,
+          "announcement": 2,
+          "entertainment": 1,
+          "quiz_game": 1
+        }
+      },
+      "2026-02": {
+        "count": 25,
+        "avg_length": 251.7,
+        "categories": {
+          "media_only": 13,
+          "product_desc": 6,
+          "engagement": 3,
+          "entertainment": 2,
+          "promo_contest": 1
+        }
+      },
+      "2026-03": {
+        "count": 9,
+        "avg_length": 324.4,
+        "categories": {
+          "promo_contest": 4,
+          "product_desc": 2,
+          "media_only": 1,
+          "engagement": 1,
+          "entertainment": 1
+        }
+      }
+    },
+    "by_day_of_week": {
+      "Понедельник": {
+        "count": 43,
+        "avg_length": 357.7
+      },
+      "Вторник": {
+        "count": 68,
+        "avg_length": 443.6
+      },
+      "Среда": {
+        "count": 52,
+        "avg_length": 490.6
+      },
+      "Четверг": {
+        "count": 55,
+        "avg_length": 449.6
+      },
+      "Пятница": {
+        "count": 67,
+        "avg_length": 443.7
+      },
+      "Суббота": {
+        "count": 64,
+        "avg_length": 402.9
+      },
+      "Воскресенье": {
+        "count": 69,
+        "avg_length": 367.7
+      }
+    },
+    "by_hour": {
+      "04:00": {
+        "count": 1,
+        "avg_length": 38
+      },
+      "05:00": {
+        "count": 4,
+        "avg_length": 546
+      },
+      "06:00": {
+        "count": 3,
+        "avg_length": 393.3
+      },
+      "07:00": {
+        "count": 13,
+        "avg_length": 438
+      },
+      "08:00": {
+        "count": 11,
+        "avg_length": 244.2
+      },
+      "09:00": {
+        "count": 40,
+        "avg_length": 491.0
+      },
+      "10:00": {
+        "count": 15,
+        "avg_length": 352.3
+      },
+      "11:00": {
+        "count": 31,
+        "avg_length": 352.3
+      },
+      "12:00": {
+        "count": 23,
+        "avg_length": 468.8
+      },
+      "13:00": {
+        "count": 62,
+        "avg_length": 538.3
+      },
+      "14:00": {
+        "count": 51,
+        "avg_length": 486.9
+      },
+      "15:00": {
+        "count": 41,
+        "avg_length": 527.9
+      },
+      "16:00": {
+        "count": 36,
+        "avg_length": 306.0
+      },
+      "17:00": {
+        "count": 38,
+        "avg_length": 409.9
+      },
+      "18:00": {
+        "count": 23,
+        "avg_length": 393.1
+      },
+      "19:00": {
+        "count": 15,
+        "avg_length": 130.9
+      },
+      "20:00": {
+        "count": 6,
+        "avg_length": 59.2
+      },
+      "21:00": {
+        "count": 3,
+        "avg_length": 133.3
+      },
+      "23:00": {
+        "count": 2,
+        "avg_length": 29.5
+      }
+    },
+    "busiest_month": "2025-11",
+    "busiest_day": "Воскресенье",
+    "busiest_hours": [
+      "13:00",
+      "14:00",
+      "15:00",
+      "09:00",
+      "17:00"
+    ]
+  },
+  "cta": {
+    "posts_with_cta": 164,
+    "cta_rate_pct": 39.2,
+    "cta_frequency": {
+      "пиши": 57,
+      "подпис": 38,
+      "ставь": 26,
+      "попробуй": 22,
+      "участвуй": 17,
+      "купи": 15,
+      "забери": 12,
+      "выбирай": 11,
+      "менеджер": 9,
+      "оставь": 8,
+      "жми": 7,
+      "голосуй": 7,
+      "ссылк": 5,
+      "переходи": 3,
+      "угадай": 2
+    },
+    "avg_ctas_per_post": 1.46,
+    "cta_by_category": {
+      "media_only": 3.3,
+      "promo_contest": 68.6,
+      "product_desc": 43.2,
+      "engagement": 15.4,
+      "entertainment": 3.4,
+      "info_edu": 40.2,
+      "quiz_game": 81.8,
+      "announcement": 31.6,
+      "meme_fun": 8.3
+    }
+  },
+  "products": {
+    "total_product_posts": 92,
+    "product_post_rate_pct": 22.0,
+    "product_frequency": {
+      "Конструктор": 32,
+      "Podgon": 29,
+      "Sour": 27,
+      "Podgonki": 19,
+      "Original": 18,
+      "Critical": 11,
+      "Никпак": 9,
+      "Last Hap": 9,
+      "Hotspot": 8,
+      "Slick": 5,
+      "Click": 4,
+      "Swedish": 2,
+      "Vintage": 1,
+      "Mini": 1
+    },
+    "product_details": {
+      "Конструктор": {
+        "mentions": 32,
+        "avg_post_length": 695.7,
+        "categories": {
+          "promo_contest": 22,
+          "product_desc": 7,
+          "quiz_game": 2,
+          "info_edu": 1
+        },
+        "cta_rate": 68.8,
+        "avg_structure": 4.25,
+        "sample_id": 722
+      },
+      "Sour": {
+        "mentions": 27,
+        "avg_post_length": 849.9,
+        "categories": {
+          "promo_contest": 12,
+          "product_desc": 10,
+          "quiz_game": 3,
+          "announcement": 1,
+          "info_edu": 1
+        },
+        "cta_rate": 51.9,
+        "avg_structure": 4.2,
+        "sample_id": 720
+      },
+      "Vintage": {
+        "mentions": 1,
+        "avg_post_length": 307,
+        "categories": {
+          "promo_contest": 1
+        },
+        "cta_rate": 100.0,
+        "avg_structure": 3.0,
+        "sample_id": 715
+      },
+      "Podgon": {
+        "mentions": 29,
+        "avg_post_length": 712.4,
+        "categories": {
+          "promo_contest": 16,
+          "product_desc": 9,
+          "engagement": 1,
+          "announcement": 1,
+          "info_edu": 1,
+          "quiz_game": 1
+        },
+        "cta_rate": 58.6,
+        "avg_structure": 4.1,
+        "sample_id": 707
+      },
+      "Podgonki": {
+        "mentions": 19,
+        "avg_post_length": 704.6,
+        "categories": {
+          "promo_contest": 12,
+          "product_desc": 5,
+          "info_edu": 1,
+          "quiz_game": 1
+        },
+        "cta_rate": 73.7,
+        "avg_structure": 4.29,
+        "sample_id": 704
+      },
+      "Critical": {
+        "mentions": 11,
+        "avg_post_length": 786.2,
+        "categories": {
+          "product_desc": 6,
+          "promo_contest": 3,
+          "announcement": 1,
+          "engagement": 1
+        },
+        "cta_rate": 18.2,
+        "avg_structure": 4.09,
+        "sample_id": 699
+      },
+      "Original": {
+        "mentions": 18,
+        "avg_post_length": 631.6,
+        "categories": {
+          "product_desc": 7,
+          "promo_contest": 7,
+          "announcement": 2,
+          "quiz_game": 1,
+          "info_edu": 1
+        },
+        "cta_rate": 38.9,
+        "avg_structure": 4.08,
+        "sample_id": 699
+      },
+      "Никпак": {
+        "mentions": 9,
+        "avg_post_length": 687.6,
+        "categories": {
+          "product_desc": 8,
+          "promo_contest": 1
+        },
+        "cta_rate": 22.2,
+        "avg_structure": 4.28,
+        "sample_id": 699
+      },
+      "Slick": {
+        "mentions": 5,
+        "avg_post_length": 516.2,
+        "categories": {
+          "product_desc": 3,
+          "engagement": 1,
+          "promo_contest": 1
+        },
+        "cta_rate": 40.0,
+        "avg_structure": 3.4,
+        "sample_id": 699
+      },
+      "Click": {
+        "mentions": 4,
+        "avg_post_length": 935,
+        "categories": {
+          "product_desc": 4
+        },
+        "cta_rate": 75.0,
+        "avg_structure": 4.12,
+        "sample_id": 697
+      },
+      "Mini": {
+        "mentions": 1,
+        "avg_post_length": 1314,
+        "categories": {
+          "product_desc": 1
+        },
+        "cta_rate": 100.0,
+        "avg_structure": 4.5,
+        "sample_id": 697
+      },
+      "Swedish": {
+        "mentions": 2,
+        "avg_post_length": 996,
+        "categories": {
+          "product_desc": 2
+        },
+        "cta_rate": 50.0,
+        "avg_structure": 4.5,
+        "sample_id": 697
+      },
+      "Hotspot": {
+        "mentions": 8,
+        "avg_post_length": 1015.4,
+        "categories": {
+          "promo_contest": 5,
+          "quiz_game": 1,
+          "product_desc": 1,
+          "announcement": 1
+        },
+        "cta_rate": 37.5,
+        "avg_structure": 3.94,
+        "sample_id": 631
+      },
+      "Last Hap": {
+        "mentions": 9,
+        "avg_post_length": 1077.1,
+        "categories": {
+          "product_desc": 4,
+          "promo_contest": 3,
+          "announcement": 1,
+          "quiz_game": 1
+        },
+        "cta_rate": 33.3,
+        "avg_structure": 4.06,
+        "sample_id": 599
+      }
+    }
+  },
+  "structure": {
+    "avg_score": 3.11,
+    "median_score": 3.5,
+    "with_paragraphs_pct": 75.6,
+    "with_lists_pct": 67.5,
+    "with_questions_pct": 46.4,
+    "avg_sentences": 4.1,
+    "avg_sent_length": 107.9,
+    "score_distribution": {
+      "0-1": 84,
+      "1-2": 30,
+      "2-3": 56,
+      "3-4": 125,
+      "4-5": 123
+    }
+  },
+  "mentions": {
+    "total_mentions": 557,
+    "unique_accounts": 452,
+    "top_mentions": {
+      "@SiliconeRaccoon": 6,
+      "@trainlabads": 6,
+      "@SKULL_manageer": 5,
+      "@white_podonki": 5,
+      "@sfcsb": 5,
+      "@train_lab_mg": 4,
+      "@endstufe48": 3,
+      "@DmitryV94": 3,
+      "@omx56": 3,
+      "@kiisss21": 3
+    }
+  },
+  "best_posts": {
+    "most_structured": [
+      {
+        "id": 485,
+        "date": "2025-12-13",
+        "category": "product_desc",
+        "length": 2259,
+        "structure_score": 4.5,
+        "casual_score": 2,
+        "has_question": true,
+        "ctas": [],
+        "products": [
+          "Last Hap",
+          "Sour"
+        ],
+        "text_preview": "Podonki Last Hap: как выбрать свою идеальную жидкость из 40 вкусов \n\nВы хотите чего‑то освежающего, а в итоге получаете разочарование: вкус оказывается пресным, чересчур сладким или быстро надоедает. ..."
+      },
+      {
+        "id": 492,
+        "date": "2025-12-16",
+        "category": "quiz_game",
+        "length": 1893,
+        "structure_score": 4.5,
+        "casual_score": 3,
+        "has_question": true,
+        "ctas": [
+          "попробуй"
+        ],
+        "products": [
+          "Hotspot"
+        ],
+        "text_preview": "Podonki × Hotspot Resonance: три подлинейки – 15 вкусов на любой случай\n\nМы подобрали три контрастные подлинейки, чтобы каждый нашёл вкус под настроение 🏃‍♂️\n\nВ линейке 15 вкусов: от ностальгических г..."
+      },
+      {
+        "id": 309,
+        "date": "2025-11-06",
+        "category": "announcement",
+        "length": 1636,
+        "structure_score": 4.5,
+        "casual_score": 0,
+        "has_question": true,
+        "ctas": [
+          "забери"
+        ],
+        "products": [],
+        "text_preview": "Город 🏛\nЗдесь все говорят шёпотом:\nгромко — нельзя, звук тает, не долетев до стен. Имена перешивают каждую весну, как старые знамёна, но нитки всегда не того цвета. Если прислушаться к эху, услышишь д..."
+      },
+      {
+        "id": 295,
+        "date": "2025-11-04",
+        "category": "promo_contest",
+        "length": 1583,
+        "structure_score": 4.5,
+        "casual_score": 1,
+        "has_question": true,
+        "ctas": [],
+        "products": [
+          "Конструктор",
+          "Podgon",
+          "Podgonki",
+          "Critical",
+          "Original",
+          "Last Hap",
+          "Hotspot",
+          "Sour"
+        ],
+        "text_preview": "Какой ты Podonki по знаку зодиака? 🔥\n\nСоотнесли энергию каждого знака с характером наших продуктов. \nПроверяй, насколько точно! 👌\n\n➖Овен → Podonki Critical\nМаксимальная крепость для тех, кто не знает ..."
+      },
+      {
+        "id": 450,
+        "date": "2025-12-03",
+        "category": "product_desc",
+        "length": 1518,
+        "structure_score": 4.5,
+        "casual_score": 2,
+        "has_question": true,
+        "ctas": [],
+        "products": [
+          "Конструктор"
+        ],
+        "text_preview": "Конструктор: просто и удобно 👍\n\nКонструктор — это набор для создания жидкости для вейпа 👀\n\nВключает два флакона\n🟢Глицерин (отвечает за пар)\n🟢Ароматизатор с пропиленгликолем (даёт вкус и «удар по горлу..."
+      }
+    ],
+    "most_casual": [
+      {
+        "id": 722,
+        "date": "2026-03-13",
+        "category": "promo_contest",
+        "length": 842,
+        "structure_score": 4.5,
+        "casual_score": 5,
+        "has_question": true,
+        "ctas": [],
+        "products": [
+          "Конструктор"
+        ],
+        "text_preview": "😱Американский конструктор PDNK - зачем он тебе?\n\nКороче, если ты устал от жиж, которые на второй день горчат и убивают испаритель - читай дальше.\n\nPDNK Америка — это лимитка с американскими премиальны..."
+      },
+      {
+        "id": 270,
+        "date": "2025-10-30",
+        "category": "info_edu",
+        "length": 1089,
+        "structure_score": 4.5,
+        "casual_score": 5,
+        "has_question": true,
+        "ctas": [
+          "пиши"
+        ],
+        "products": [],
+        "text_preview": "На пенек сел - косарь отдал \nВопрос написал — бокс забрал🎁\n\nУстраиваем 10‑дневный марафон взаимопомощи: одни задают вопросы о вейпинге, другие делятся опытом 🤓\n\nЭто шанс разобраться в тонкостях, узнат..."
+      },
+      {
+        "id": 448,
+        "date": "2025-12-03",
+        "category": "product_desc",
+        "length": 1256,
+        "structure_score": 4.5,
+        "casual_score": 4,
+        "has_question": true,
+        "ctas": [],
+        "products": [
+          "Hotspot"
+        ],
+        "text_preview": "Podonki Resonance: 3 настроения, 15 вкусов, бесконечный кайф\n\nБывает, что хочется чего‑то новенького, но не можете решить: освежающего, бодрящего или уютного? Мы всё продумали за вас 🤓\n\nResonance от P..."
+      },
+      {
+        "id": 315,
+        "date": "2025-11-07",
+        "category": "product_desc",
+        "length": 812,
+        "structure_score": 4.5,
+        "casual_score": 4,
+        "has_question": true,
+        "ctas": [
+          "попробуй"
+        ],
+        "products": [
+          "Podgon"
+        ],
+        "text_preview": "Podonki Podgon — это не просто какая-то там жидкость, это ядерный взрыв для ваших вкусовых рецепторов!\n\n🎯Что у нас тут?\n🟢Яблочный лимонад — как первый солнечный день, когда всё возможно, если, конечно..."
+      },
+      {
+        "id": 492,
+        "date": "2025-12-16",
+        "category": "quiz_game",
+        "length": 1893,
+        "structure_score": 4.5,
+        "casual_score": 3,
+        "has_question": true,
+        "ctas": [
+          "попробуй"
+        ],
+        "products": [
+          "Hotspot"
+        ],
+        "text_preview": "Podonki × Hotspot Resonance: три подлинейки – 15 вкусов на любой случай\n\nМы подобрали три контрастные подлинейки, чтобы каждый нашёл вкус под настроение 🏃‍♂️\n\nВ линейке 15 вкусов: от ностальгических г..."
+      }
+    ],
+    "longest": [
+      {
+        "id": 485,
+        "date": "2025-12-13",
+        "category": "product_desc",
+        "length": 2259,
+        "structure_score": 4.5,
+        "casual_score": 2,
+        "has_question": true,
+        "ctas": [],
+        "products": [
+          "Last Hap",
+          "Sour"
+        ],
+        "text_preview": "Podonki Last Hap: как выбрать свою идеальную жидкость из 40 вкусов \n\nВы хотите чего‑то освежающего, а в итоге получаете разочарование: вкус оказывается пресным, чересчур сладким или быстро надоедает. ..."
+      },
+      {
+        "id": 492,
+        "date": "2025-12-16",
+        "category": "quiz_game",
+        "length": 1893,
+        "structure_score": 4.5,
+        "casual_score": 3,
+        "has_question": true,
+        "ctas": [
+          "попробуй"
+        ],
+        "products": [
+          "Hotspot"
+        ],
+        "text_preview": "Podonki × Hotspot Resonance: три подлинейки – 15 вкусов на любой случай\n\nМы подобрали три контрастные подлинейки, чтобы каждый нашёл вкус под настроение 🏃‍♂️\n\nВ линейке 15 вкусов: от ностальгических г..."
+      },
+      {
+        "id": 309,
+        "date": "2025-11-06",
+        "category": "announcement",
+        "length": 1636,
+        "structure_score": 4.5,
+        "casual_score": 0,
+        "has_question": true,
+        "ctas": [
+          "забери"
+        ],
+        "products": [],
+        "text_preview": "Город 🏛\nЗдесь все говорят шёпотом:\nгромко — нельзя, звук тает, не долетев до стен. Имена перешивают каждую весну, как старые знамёна, но нитки всегда не того цвета. Если прислушаться к эху, услышишь д..."
+      },
+      {
+        "id": 295,
+        "date": "2025-11-04",
+        "category": "promo_contest",
+        "length": 1583,
+        "structure_score": 4.5,
+        "casual_score": 1,
+        "has_question": true,
+        "ctas": [],
+        "products": [
+          "Конструктор",
+          "Podgon",
+          "Podgonki",
+          "Critical",
+          "Original",
+          "Last Hap",
+          "Hotspot",
+          "Sour"
+        ],
+        "text_preview": "Какой ты Podonki по знаку зодиака? 🔥\n\nСоотнесли энергию каждого знака с характером наших продуктов. \nПроверяй, насколько точно! 👌\n\n➖Овен → Podonki Critical\nМаксимальная крепость для тех, кто не знает ..."
+      },
+      {
+        "id": 450,
+        "date": "2025-12-03",
+        "category": "product_desc",
+        "length": 1518,
+        "structure_score": 4.5,
+        "casual_score": 2,
+        "has_question": true,
+        "ctas": [],
+        "products": [
+          "Конструктор"
+        ],
+        "text_preview": "Конструктор: просто и удобно 👍\n\nКонструктор — это набор для создания жидкости для вейпа 👀\n\nВключает два флакона\n🟢Глицерин (отвечает за пар)\n🟢Ароматизатор с пропиленгликолем (даёт вкус и «удар по горлу..."
+      }
+    ],
+    "best_overall": [
+      {
+        "id": 270,
+        "date": "2025-10-30",
+        "category": "info_edu",
+        "length": 1089,
+        "structure_score": 4.5,
+        "casual_score": 5,
+        "has_question": true,
+        "ctas": [
+          "пиши"
+        ],
+        "products": [],
+        "text_preview": "На пенек сел - косарь отдал \nВопрос написал — бокс забрал🎁\n\nУстраиваем 10‑дневный марафон взаимопомощи: одни задают вопросы о вейпинге, другие делятся опытом 🤓\n\nЭто шанс разобраться в тонкостях, узнат..."
+      },
+      {
+        "id": 722,
+        "date": "2026-03-13",
+        "category": "promo_contest",
+        "length": 842,
+        "structure_score": 4.5,
+        "casual_score": 5,
+        "has_question": true,
+        "ctas": [],
+        "products": [
+          "Конструктор"
+        ],
+        "text_preview": "😱Американский конструктор PDNK - зачем он тебе?\n\nКороче, если ты устал от жиж, которые на второй день горчат и убивают испаритель - читай дальше.\n\nPDNK Америка — это лимитка с американскими премиальны..."
+      },
+      {
+        "id": 315,
+        "date": "2025-11-07",
+        "category": "product_desc",
+        "length": 812,
+        "structure_score": 4.5,
+        "casual_score": 4,
+        "has_question": true,
+        "ctas": [
+          "попробуй"
+        ],
+        "products": [
+          "Podgon"
+        ],
+        "text_preview": "Podonki Podgon — это не просто какая-то там жидкость, это ядерный взрыв для ваших вкусовых рецепторов!\n\n🎯Что у нас тут?\n🟢Яблочный лимонад — как первый солнечный день, когда всё возможно, если, конечно..."
+      },
+      {
+        "id": 448,
+        "date": "2025-12-03",
+        "category": "product_desc",
+        "length": 1256,
+        "structure_score": 4.5,
+        "casual_score": 4,
+        "has_question": true,
+        "ctas": [],
+        "products": [
+          "Hotspot"
+        ],
+        "text_preview": "Podonki Resonance: 3 настроения, 15 вкусов, бесконечный кайф\n\nБывает, что хочется чего‑то новенького, но не можете решить: освежающего, бодрящего или уютного? Мы всё продумали за вас 🤓\n\nResonance от P..."
+      },
+      {
+        "id": 492,
+        "date": "2025-12-16",
+        "category": "quiz_game",
+        "length": 1893,
+        "structure_score": 4.5,
+        "casual_score": 3,
+        "has_question": true,
+        "ctas": [
+          "попробуй"
+        ],
+        "products": [
+          "Hotspot"
+        ],
+        "text_preview": "Podonki × Hotspot Resonance: три подлинейки – 15 вкусов на любой случай\n\nМы подобрали три контрастные подлинейки, чтобы каждый нашёл вкус под настроение 🏃‍♂️\n\nВ линейке 15 вкусов: от ностальгических г..."
+      },
+      {
+        "id": 234,
+        "date": "2025-10-20",
+        "category": "info_edu",
+        "length": 414,
+        "structure_score": 4.5,
+        "casual_score": 3,
+        "has_question": true,
+        "ctas": [
+          "пиши"
+        ],
+        "products": [],
+        "text_preview": "Снимаете видео и делаете это по-человечески? 😁\n  \n✅снимаете про вейп в TikTok, Instagram, YouTube или Telegram  \n✅делаете обзоры, лайфхаки, челленджи или просто «реальные истории»  \n✅нормальное качест..."
+      },
+      {
+        "id": 347,
+        "date": "2025-11-13",
+        "category": "info_edu",
+        "length": 595,
+        "structure_score": 4.5,
+        "casual_score": 3,
+        "has_question": true,
+        "ctas": [],
+        "products": [],
+        "text_preview": "Почему многие «одноразки» обманывают с затяжками? 🤔\n\nКогда на упаковке «30 000+ затяжек!», а реальность оказывается в 2–3 раза скромнее😡\n\n❌Игра с методикой подсчёта\nКто‑то считает микро‑затяжки, кто‑т..."
+      },
+      {
+        "id": 216,
+        "date": "2025-10-14",
+        "category": "info_edu",
+        "length": 627,
+        "structure_score": 4.5,
+        "casual_score": 3,
+        "has_question": true,
+        "ctas": [],
+        "products": [],
+        "text_preview": "Ты думаешь, Podonki Light — это слабо?\n\nА если я скажу, ты можешь парить весь день и не замечать, что голова тяжелеет?👌\n\nТы не хочешь, чтобы после 10-й затяжки тебя выбивало. Ты не хочешь, чтобы вечер..."
+      },
+      {
+        "id": 193,
+        "date": "2025-09-26",
+        "category": "info_edu",
+        "length": 869,
+        "structure_score": 4.5,
+        "casual_score": 3,
+        "has_question": true,
+        "ctas": [],
+        "products": [],
+        "text_preview": "🚫 Sнюс в РФ ≠ жевательный табак\n\nХватит верить, что «главное — никотин». Это как сравнивать кофе в зёрнах и растворимый «3 в 1» из автомата.\n\nSнюс — это резкий, короткий удар через 2 минуты в голову, ..."
+      },
+      {
+        "id": 481,
+        "date": "2025-12-12",
+        "category": "info_edu",
+        "length": 489,
+        "structure_score": 4.5,
+        "casual_score": 3,
+        "has_question": true,
+        "ctas": [],
+        "products": [],
+        "text_preview": "Во что играете? Собираем топ‑игр сообщества 🎮\n\nДавайте узнаем, какие игры сейчас в фаворитах у нашей аудитории. Может, найдёте для себя новый хит или компанию для коопа 😉\n\nПоделитесь в комментариях🧑‍💻..."
+      }
+    ]
+  },
+  "hooks": {
+    "types": {
+      "short_emoji_hook": 196,
+      "other": 143,
+      "product_name_hook": 37,
+      "question_hook": 29,
+      "emoji_start": 9,
+      "urgency_hook": 3,
+      "conversational_hook": 1
+    },
+    "total_analyzed": 418
+  },
+  "brand_voice": {
+    "compliant_posts": 331,
+    "compliance_rate_pct": 79.2,
+    "issues": {
+      "formal_вы_addressing": 79,
+      "long_post_no_casual_tone": 74,
+      "formal_language": 11,
+      "no_emoji_in_long_post": 1
+    },
+    "recommendations": [
+      "Только 27% постов содержат разговорные маркеры. Для ЦА 18-30 нужно больше неформальной лексики: 'короче', 'реально', 'кайф', 'огонь'.",
+      "Вопросы только в 46% постов. Вопросы повышают вовлечённость — добавляйте в конце каждого поста.",
+      "CTA только в 39% постов. Каждый пост должен содержать призыв к действию.",
+      "Малоупоминаемые продукты: Vintage, Slick, Click, Mini, Swedish. Увеличьте присутствие в контенте.",
+      "Медиа только в 54% постов. Telegram лучше работает с визуалом.",
+      "Преобладает обращение на 'вы'. Для молодой ЦА лучше 'ты' — ближе и неформальнее.",
+      "Развлекательный контент: 10%. Нужно минимум 15-20% для удержания аудитории.",
+      "Только 9% постов (39 из 418) попадают в целевой диапазон 1000-1500 символов с пробелами. Нужно увеличивать долю полноценных текстовых постов.",
+      "Лучшая формула поста: короткий цепляющий заголовок + 3-5 буллитов (✅/🟢) + вопрос + CTA. Целевая длина: 1000-1500 символов с пробелами."
+    ]
+  },
+  "posting_rhythm": {
+    "avg_gap_hours": 16.4,
+    "median_gap_hours": 6.4,
+    "min_gap_hours": 0.0,
+    "max_gap_hours": 164.3,
+    "posts_per_week_avg": 10.3
+  }
+}

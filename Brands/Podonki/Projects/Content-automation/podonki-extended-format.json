@@ -1,0 +1,41 @@
+[
+  {
+    "id": "liquid_podgon",
+    "name": "Podonki Podgon",
+    "sample_flavors": [
+      "Watermelon",
+      "Raspberry",
+      "Tropical Mix",
+      "Mint",
+      "Strawberry"
+    ],
+    "positioning": "Бюджетная классика",
+    "target_audience": "Доступный вейп для каждого дня"
+  },
+  {
+    "id": "liquid_last_hap",
+    "name": "Podonki Last Hap",
+    "sample_flavors": [
+      "Exotic Mix",
+      "Berry Blast",
+      "Citrus Storm",
+      "Cooling Mint",
+      "Sweet Dreams"
+    ],
+    "positioning": "Мощная эволюция классики",
+    "target_audience": "Опытные вейперы, ищущие интенсивность"
+  },
+  {
+    "id": "snus_slick",
+    "name": "Podonki Slick",
+    "sample_flavors": [
+      "Classic Mint",
+      "Strong Tobacco",
+      "Ice Cool",
+      "Spiced",
+      "Original"
+    ],
+    "positioning": "Премиальный снюс",
+    "target_audience": "Ценители качества"
+  }
+]

@@ -1,0 +1,161 @@
+{
+  "media_rotation_system": {
+    "description": "Система ротации медиа (картинки и видео) для постов Podonki",
+    "rules": [
+      "70% постов с медиа (картинка или видео)",
+      "30% постов только текст",
+      "Готовые картинки — прямо в посты",
+      "Мокапы — для генерации через ComfyUI",
+      "Видео с линейками — привязка к теме",
+      "Видео общее — универсальное использование",
+      "На Podonki можно использовать материалы Train Lab и Podonki OFF"
+    ],
+    "base_path": "C:/Users/Пох кто/OneDrive/Рабочий стол/Projects/Podonki/Projects/Content-automation/Материалы",
+    "channels": {
+      "Podonki": {
+        "description": "Основной канал B2C",
+        "can_use_from": [
+          "Канал Podonki",
+          "Канал Train lab",
+          "Канал Podonki OFF"
+        ],
+        "media_types": [
+          "текст + картинка (70%)",
+          "текст + видео (20%)",
+          "только текст (10%)"
+        ]
+      },
+      "Train Lab": {
+        "description": "Образовательный канал",
+        "path": "Канал Train lab",
+        "media_types": [
+          "текст + картинка (60%)",
+          "текст + видео (25%)",
+          "только текст (15%)"
+        ]
+      },
+      "Podonki OFF": {
+        "description": "Канал про жевательный табак (snus)",
+        "path": "Канал Podonki OFF",
+        "media_types": [
+          "текст + картинка (75%)",
+          "текст + видео (15%)",
+          "только текст (10%)"
+        ]
+      }
+    }
+  },
+  "product_lines": {
+    "Podonki OFF - Жевательный табак": {
+      "channel": "Podonki OFF",
+      "category": "Жевательный табак",
+      "products": [
+        {
+          "name": "PDNK Click (с капсулой)",
+          "path": "Канал Podonki OFF/Жевательный табак/PDNK Click (с капсулой)",
+          "ready_images": "Готовые картинки",
+          "ready_images_count": 5,
+          "mockups": "Мокапы",
+          "mockups_available": [
+            "Apple.png",
+            "Blueberry.png",
+            "Cactus.png",
+            "Cherry.png",
+            "Cola.png",
+            "Melon.png",
+            "mint gum.png",
+            "MINT.png",
+            "Pineapple.png",
+            "Watermelon.png"
+          ],
+          "note": "Готовые картинки ротируются по порядку (1.jpg, 2.jpg и т.д.). Мокапы используются для ComfyUI генерации (без привязки к конкретному вкусу)"
+        },
+        {
+          "name": "PDNK Mini",
+          "path": "Канал Podonki OFF/Жевательный табак/PDNK Mini",
+          "ready_images": "Готовые картинки",
+          "ready_images_count": 8,
+          "mockups": "Мокапы",
+          "mockups_count": 6,
+          "note": "Готовые картинки (JPG) + мокапы (PNG) для ComfyUI"
+        },
+        {
+          "name": "PDNK Swedish Collection",
+          "path": "Канал Podonki OFF/Жевательный табак/PDNK Swedish Collection",
+          "ready_images": "Готовые картинки",
+          "ready_images_count": 5,
+          "mockups": "Мокапы",
+          "mockups_count": 4,
+          "note": "Шведская коллекция — готовые картинки + мокапы"
+        }
+      ]
+    }
+  },
+  "media_selection_logic": {
+    "step_1_detect_topic": "Система определяет тему поста (какой продукт упоминается)",
+    "step_2_match_product": "Если пост про PDNK Click — использует картинки/видео PDNK Click",
+    "step_3_choose_format": "Выбирает формат поста (текст, текст+картинка, текст+видео) на основе %",
+    "step_4_rotate_media": "Ротирует через доступные картинки (1.jpg → 2.jpg → 3.jpg → ... → повтор)",
+    "step_5_validate": "Проверяет соответствие: пост про PDNK Click → любая картинка PDNK Click",
+    "step_6_flavor_mapping": "Вкусы (Apple, Blueberry и т.д.) — не нужны. Любая картинка линейки подходит.",
+    "rule_no_mismatch": "ВАЖНО: не путать линейки! Пост про PDNK Click — только материалы PDNK Click. Пост про Swedish Collection — только Swedish Collection.",
+    "repetition_rule": "Повторения разрешены после полного цикла всех картинок продукта"
+  },
+  "ready_images_vs_mockups": {
+    "ready_images": {
+      "description": "Готовые картинки (готовы для публикации)",
+      "usage": "Прямо в посты (когда поста о конкретном продукте)",
+      "where_stored": "Папка 'Готовые картинки' в каждом продукте",
+      "format": "JPG/PNG, уже оформленные с брендингом",
+      "rotation": "Цикличная ротация (1.jpg → 2.jpg → 3.jpg → 1.jpg)"
+    },
+    "mockups": {
+      "description": "Мокапы (для генерации через ComfyUI)",
+      "usage": "Отправляются в ComfyUI с промптом для генерации уникальных картинок",
+      "where_stored": "Папка 'Мокапы' в каждом продукте",
+      "format": "PNG, шаблоны продукции",
+      "generation": "ComfyUI берёт мокап + промпт → генерирует уникальную картинку",
+      "when_used": "Когда нужна новая/уникальная картинка (не просто ротация готовых)"
+    }
+  },
+  "video_categories": {
+    "product_videos": {
+      "description": "Видео с линейками (привязаны к продуктам)",
+      "usage": "Когда пост про конкретный продукт",
+      "rotation": "Ротирует через доступные видео продукта",
+      "matching": "ВАЖНО: если пост про PDNK Click, только видео PDNK Click"
+    },
+    "general_videos": {
+      "description": "Общие видео (универсальное использование)",
+      "usage": "Для постов про вейпинг в целом, мемы, развлечение",
+      "rotation": "Можно использовать в любых постах",
+      "note": "Должны быть в папке 'Видео общее' или аналогично"
+    }
+  },
+  "posting_strategy": {
+    "daily_quota": {
+      "total_posts": "3-4 поста в день",
+      "with_media": "~2.5 поста (70%)",
+      "text_only": "~0.5 поста (30%)"
+    },
+    "distribution": {
+      "картинка_только": "50% постов (1.75 из 2.5 с медиа)",
+      "видео_только": "30% постов (0.75 из 2.5 с медиа)",
+      "картинка_плюс_видео": "20% постов (0.5 из 2.5 с медиа) - опционально",
+      "текст_только": "30% постов"
+    }
+  },
+  "implementation_notes": {
+    "phase_1": "Готовые картинки → ротация готовых изображений",
+    "phase_2": "Мокапы + ComfyUI → генерация уникальных картинок",
+    "phase_3": "Видео + интеграция → подбор видео под тему",
+    "current_phase": "phase_1 (готовые картинки + текст)",
+    "next_phase": "phase_2 (ComfyUI генерация) — обсудим отдельно промпты"
+  },
+  "metadata": {
+    "created": "2026-03-14",
+    "updated": "2026-03-14",
+    "base_path": "C:/Users/Пох кто/OneDrive/Рабочий стол/Projects/Podonki/Projects/Content-automation/Материалы",
+    "note": "Структура парсится автоматически. Файлы в папках должны остаться на месте."
+  }
+}

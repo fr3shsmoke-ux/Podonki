@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//c/Users/Пох кто/OneDrive/Рабочий стол/Podonki \\(посты\\)/Общее/Картинки/**)",
+      "Bash(node scripts/show-rules.js)",
+      "Read(//c/Users/Пох кто/AppData/Roaming/Code/User/**)",
+      "Bash(npm list:*)",
+      "Bash(npm install:*)"
+    ],
+    "additionalDirectories": [
+      "C:\\Users\\Пох кто\\Projects\\podonki-content"
+    ]
+  }
+}

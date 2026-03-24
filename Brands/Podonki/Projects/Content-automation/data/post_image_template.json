@@ -1,0 +1,32 @@
+{
+  "post_id": "post_20260314_product",
+  "title": "Выбираешь первый вейп? Вот что нужно знать",
+  "description": "Картинка для поста про Podonki Classic и Pro",
+  "design_spec": {
+    "dimensions": "1200x628px",
+    "style": "modern_minimalist",
+    "colors": ["#00D9FF", "#FF006E", "#FFFFFF", "#1A1A2E"],
+    "elements": [
+      {
+        "type": "product",
+        "content": "Podonki Classic и Pro pod-системы",
+        "position": "center",
+        "size": "large"
+      },
+      {
+        "type": "text_accent",
+        "content": "Выбираешь первый вейп?",
+        "style": "bold",
+        "color": "#FF006E"
+      },
+      {
+        "type": "background",
+        "style": "gradient",
+        "from": "#1A1A2E",
+        "to": "#00D9FF"
+      }
+    ]
+  },
+  "generation_method": "gemini_or_comfyui",
+  "status": "ready_for_generation"
+}

@@ -1,0 +1,111 @@
+{
+  "b2b": [
+    {
+      "rubric": "Новые товары",
+      "weight": 0.2,
+      "content": "[MOCK POST - B2B]\n\nTopic: новые_товары\n",
+      "products": [],
+      "model": "mock",
+      "success": true
+    },
+    {
+      "rubric": "Маржа и условия",
+      "weight": 0.25,
+      "content": "[MOCK POST - B2B]\n\nTopic: маржа_и_условия\n",
+      "products": [],
+      "model": "mock",
+      "success": true
+    },
+    {
+      "rubric": "Тренды рынка",
+      "weight": 0.2,
+      "content": "[MOCK POST - B2B]\n\nTopic: тренды_рынка\n",
+      "products": [],
+      "model": "mock",
+      "success": true
+    },
+    {
+      "rubric": "Обучение партнёров",
+      "weight": 0.15,
+      "content": "[MOCK POST - B2B]\n\nTopic: обучение_партнёров\n",
+      "products": [],
+      "model": "mock",
+      "success": true
+    },
+    {
+      "rubric": "Behind the scenes",
+      "weight": 0.1,
+      "content": "[MOCK POST - B2B]\n\nTopic: behind_the_scenes\n",
+      "products": [],
+      "model": "mock",
+      "success": true
+    },
+    {
+      "rubric": "Розыгрыши",
+      "weight": 0.1,
+      "content": "[MOCK POST - B2B]\n\nTopic: розыгрыши\n",
+      "products": [],
+      "model": "mock",
+      "success": true
+    }
+  ],
+  "b2c": [
+    {
+      "rubric": "Обзоры вкусов",
+      "weight": 0.25,
+      "content": "[MOCK POST - B2C]\n\nTopic: обзоры_вкусов\n",
+      "products": [],
+      "model": "mock",
+      "success": true
+    },
+    {
+      "rubric": "Lifestyle",
+      "weight": 0.2,
+      "content": "[MOCK POST - B2C]\n\nTopic: lifestyle\n",
+      "products": [],
+      "model": "mock",
+      "success": true
+    },
+    {
+      "rubric": "Челленджи",
+      "weight": 0.15,
+      "content": "[MOCK POST - B2C]\n\nTopic: челленджи\n",
+      "products": [],
+      "model": "mock",
+      "success": true
+    },
+    {
+      "rubric": "Новости",
+      "weight": 0.15,
+      "content": "[MOCK POST - B2C]\n\nTopic: новости\n",
+      "products": [],
+      "model": "mock",
+      "success": true
+    },
+    {
+      "rubric": "Образование",
+      "weight": 0.1,
+      "content": "[MOCK POST - B2C]\n\nTopic: образование\n",
+      "products": [],
+      "model": "mock",
+      "success": true
+    },
+    {
+      "rubric": "Мемы",
+      "weight": 0.1,
+      "content": "[MOCK POST - B2C]\n\nTopic: мемы\n",
+      "products": [],
+      "model": "mock",
+      "success": true
+    },
+    {
+      "rubric": "Интервью",
+      "weight": 0.05,
+      "content": "[MOCK POST - B2C]\n\nTopic: интервью\n",
+      "products": [],
+      "model": "mock",
+      "success": true
+    }
+  ],
+  "generated_at": "2026-03-11T15:14:46.788Z"
+}
