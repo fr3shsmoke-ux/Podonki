@@ -21,11 +21,11 @@ jobs:
           node-version: 20
 
       - name: Install dependencies
-        working-directory: Brands/Brands/Brands/Podonki/Projects/Content-automation
+        working-directory: Brands/Podonki/Projects/Content-automation
         run: npm ci
 
       - name: Run tests with coverage
-        working-directory: Projects/Content-automation
+        working-directory: Brands/Podonki/Projects/Content-automation
         run: npm test -- --coverage
 
       - name: SonarQube scan
@@ -40,4 +40,5 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+
 
