@@ -21,7 +21,7 @@ jobs:
           node-version: 20
 
       - name: Install dependencies
-        working-directory: Brands/Brands/Podonki/Projects/Content-automation
+        working-directory: Brands/Brands/Brands/Podonki/Projects/Content-automation
         run: npm ci
 
       - name: Run tests with coverage
@@ -40,3 +40,4 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+
