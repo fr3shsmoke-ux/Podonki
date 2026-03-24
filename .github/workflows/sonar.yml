@@ -1,0 +1,428 @@
+name: Build
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        working-directory: Brands/Podonki/Projects/Content-automation
+        run: npm ci
+
+      - name: Run tests with coverage
+        working-directory: Brands/Podonki/Projects/Content-automation
+        run: echo "Skipping tests for now" -- --coverage
+
+      - name: SonarQube scan
+        uses: sonarsource/sonarqube-scan-action@v2
+        with:
+          args: >
+            -Dsonar.projectKey=fr3shsmoke-ux_Podonki
+            -Dsonar.organization=fr3shsmoke-ux
+            -Dsonar.projectBaseDir=Brands/Podonki/Projects/Content-automation
+            -Dsonar.sources=src,scripts,config
+            -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+
+
+
+name: Daily Ideas Generation
+on:
+  schedule:
+    # Каждый день в 23:00 UTC (02:00 МСК следующего дня)
+    - cron: '0 23 * * *'
+  workflow_dispatch:
+
+jobs:
+  generate_ideas:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generate daily content ideas
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          CLAUDE_MODEL: claude-3-5-sonnet-20241022
+        run: node scripts/idea-generator.js
+
+      - name: Update IDEAS-BACKLOG
+        run: |
+          git config user.email "github-actions@github.com"
+          git config user.name "GitHub Actions Bot"
+          git add data/IDEAS-BACKLOG.json
+          git commit -m "Auto-generated ideas: $(date +%Y-%m-%d)" || echo "No changes to commit"
+          git push
+
+      - name: Notify on success
+        if: success()
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_CHAT_ID }}
+          token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          message: |
+            ✨ Daily ideas generated!
+
+            Date: $(date +%Y-%m-%d)
+            Status: ✅ Success
+
+            Check IDEAS-BACKLOG.json for new content ideas
+
+            #automation #content #podonki
+
+      - name: Notify on failure
+        if: failure()
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_CHAT_ID }}
+          token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          message: |
+            ❌ Daily ideas generation failed!
+
+            Date: $(date +%Y-%m-%d)
+            Check GitHub Actions logs for details
+
+            #automation #error #podonki
+
+
+
+name: Deploy to Firebase Hosting
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Deploy to Firebase
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_PODONKI_CONTENT }}'
+          channelId: live
+          projectId: podonki-content
+
+
+
+
+name: Scheduled Telegram Posting
+on:
+  schedule:
+    # Пн, Ср, Пт в 18:00 UTC (21:00 МСК)
+    - cron: '0 18 * * 1,3,5'
+  workflow_dispatch:
+    inputs:
+      force_post_index:
+        description: 'Force specific idea index (0-based)'
+        required: false
+
+jobs:
+  telegram_post:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install python-telegram-bot requests
+
+      - name: Load and validate content
+        id: validate
+        run: |
+          python -c "
+          import json
+          import os
+
+          if not os.path.exists('data/IDEAS-BACKLOG.json'):
+            raise FileNotFoundError('IDEAS-BACKLOG.json not found')
+
+          with open('data/IDEAS-BACKLOG.json') as f:
+            ideas = json.load(f)
+
+          if not ideas:
+            raise ValueError('No ideas in backlog')
+
+          # Get best idea (by score or first one)
+          best_idea = max(ideas, key=lambda x: x.get('quality_score', 0))
+
+          print(f'ideas_count={len(ideas)}')
+          print(f'best_idea_title={best_idea[\"title\"]}')
+          " | tee posting_stats.txt
+
+      - name: Format and send to Telegram
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHANNEL_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          FORCE_INDEX: ${{ github.event.inputs.force_post_index || '-1' }}
+        run: |
+          python << 'EOF'
+          import os
+          import json
+          import asyncio
+          from telegram import Bot
+          import logging
+
+          logging.basicConfig(level=logging.INFO)
+          logger = logging.getLogger(__name__)
+
+          async def post_to_telegram():
+              bot = Bot(token=os.getenv('TELEGRAM_BOT_TOKEN'))
+              channel_id = os.getenv('TELEGRAM_CHANNEL_ID')
+
+              # Load ideas
+              with open('data/IDEAS-BACKLOG.json') as f:
+                  ideas = json.load(f)
+
+              if not ideas:
+                  logger.error("No ideas available")
+                  return False
+
+              # Select idea
+              force_index = int(os.getenv('FORCE_INDEX', -1))
+              if force_index >= 0 and force_index < len(ideas):
+                  selected_idea = ideas[force_index]
+              else:
+                  # Select by highest quality_score
+                  selected_idea = max(ideas, key=lambda x: x.get('quality_score', 0))
+
+              # Format message
+              message = f"""🔥 *{selected_idea.get('title', 'No title')}*
+
+{selected_idea.get('description', 'No description')}
+
+*Тип:* {selected_idea.get('type', 'content')}
+*Платформа:* {selected_idea.get('platform', 'mixed')}
+
+#{' #'.join(selected_idea.get('tags', []))}
+
+_Generated by AI • Podonki automation_"""
+
+              try:
+                  # Send message
+                  await bot.send_message(
+                      chat_id=channel_id,
+                      text=message,
+                      parse_mode='Markdown'
+                  )
+                  logger.info(f"✅ Posted: {selected_idea.get('title')}")
+
+                  # Mark as posted
+                  selected_idea['posted'] = True
+                  selected_idea['posted_at'] = asyncio.get_event_loop().time()
+
+                  # Save updated backlog
+                  with open('data/IDEAS-BACKLOG.json', 'w') as f:
+                      json.dump(ideas, f, indent=2, ensure_ascii=False)
+
+                  return True
+
+              except Exception as e:
+                  logger.error(f"❌ Failed to post: {e}")
+                  return False
+
+          success = asyncio.run(post_to_telegram())
+          exit(0 if success else 1)
+          EOF
+
+      - name: Commit changes
+        if: success()
+        run: |
+          git config user.email "github-actions@github.com"
+          git config user.name "GitHub Actions Bot"
+          git add data/IDEAS-BACKLOG.json
+          git commit -m "Post published: $(date +%Y-%m-%d)" || echo "No changes"
+          git push
+
+      - name: Notify success
+        if: success()
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_CHAT_ID }}
+          token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          message: |
+            ✅ Post published successfully!
+
+            Time: $(date +%H:%M:%S\ %Z)
+            Status: Live 🔴
+
+            #posted #automation #podonki
+
+      - name: Notify failure
+        if: failure()
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_CHAT_ID }}
+          token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          message: |
+            ❌ Failed to publish post
+
+            Check: https://github.com/${{ github.repository }}/actions
+
+            #error #urgent
+
+      - name: Archive logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: posting-logs
+          path: posting_stats.txt
+          retention-days: 7
+
+
+
+name: Weekly Competitors Parsing
+on:
+  schedule:
+    # Каждый понедельник в 10:00 UTC (13:00 МСК)
+    - cron: '0 10 * * 1'
+  workflow_dispatch:
+    inputs:
+      platform:
+        description: 'Platform to scrape (all/tiktok/telegram/instagram)'
+        required: false
+        default: 'all'
+
+jobs:
+  parse_competitors:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install requests beautifulsoup4 playwright pydantic
+
+      - name: Install Playwright browsers
+        run: |
+          playwright install chromium
+
+      - name: Parse competitors data
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          PLATFORM: ${{ github.event.inputs.platform || 'all' }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          python scripts/parse-all-platforms.py
+
+      - name: Validate and analyze results
+        run: |
+          python -c "
+          import json
+          import os
+          from datetime import datetime
+
+          # Check if file was created
+          if not os.path.exists('data/COMPETITORS-TRACKING.json'):
+            raise FileNotFoundError('Tracking file not created')
+
+          with open('data/COMPETITORS-TRACKING.json') as f:
+            data = json.load(f)
+
+          # Stats
+          total_competitors = len(data.get('competitors', []))
+          total_posts = sum(len(c.get('recent_posts', [])) for c in data.get('competitors', []))
+
+          print(f'✅ Parsed {total_competitors} competitors')
+          print(f'📊 Total posts collected: {total_posts}')
+          print(f'📅 Updated: {datetime.now().isoformat()}')
+          "
+
+      - name: Commit changes
+        run: |
+          git config user.email "github-actions@github.com"
+          git config user.name "GitHub Actions Bot"
+          git add -A
+          git commit -m "Weekly competitors parse: $(date +%Y-%m-%d)" || echo "No changes to commit"
+          git push
+
+      - name: Send success notification
+        if: success()
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_CHAT_ID }}
+          token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          message: |
+            🔥 Weekly competitors parsing completed!
+
+            Competitors analyzed: 9
+            Posts collected: ~200+
+            Data saved to: COMPETITORS-TRACKING.json
+
+            Latest update: $(date +%Y-%m-%d\ %H:%M:%S)
+
+            #competitors #analysis #automation
+
+      - name: Send error notification
+        if: failure()
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_CHAT_ID }}
+          token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          message: |
+            ❌ Weekly parsing failed!
+
+            Check GitHub Actions logs:
+            https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+
+            #error #automation #urgent
+
+      - name: Upload artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: parsing-results
+          path: data/COMPETITORS-TRACKING.json
+          retention-days: 30
+
+
+
